@@ -2,5 +2,12 @@
 <resources>
     <color name="colorPrimary">#37474f</color>
     <color name="colorPrimaryDark">#263238</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#72035c</color>
+    <color name="colorAccentLight">#cfd8dc</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="correctAnswer">#00c853</color>
+    <color name="wrongAnswer">#d50000</color>
+    <color name="nextButtonColor">#ffea00</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

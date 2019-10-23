@@ -5,13 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StoryActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/comicStripIv"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
+        android:src="@drawable/hospital1"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        />
+
+    <Button
+        android:id="@+id/nextStoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:layout_gravity="center"
+        android:background="@drawable/ripple"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"/>
+
+
+    <Button
+        android:id="@+id/mcq_option_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/Hospital1"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="1. 18"
+        android:textAlignment="textStart"
+        android:paddingStart="20dp"
+        android:background="@drawable/ripple"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/mcq_option_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="2. 25"
+        android:textAlignment="textStart"
+        android:paddingStart="20dp"
+        android:background="@drawable/ripple"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/mcq_option_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="3. No age bar"
+        android:textAlignment="textStart"
+        android:paddingStart="20dp"
+        android:background="@drawable/ripple"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
         />
 
 

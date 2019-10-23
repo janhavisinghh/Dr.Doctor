@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IGiftLife</string>
+
+    <string name="title_activity_full_screen_score_card">FullScreenScoreCardActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
