@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/firstscreen"
     android:gravity="center"
-    android:id="@+id/playButton"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
+    <ImageButton
+        android:id="@+id/playButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/firstscreen"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
+
+    <LinearLayout
+        android:id="@+id/girlBoyCharLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1.0"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/girlCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/girl_avatar"
+            android:layout_weight="0.5"
+            android:scaleType="centerCrop"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+        <ImageButton
+            android:id="@+id/boyCharacter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/boy_avatar"
+            android:layout_weight="0.5"
+            android:scaleType="centerCrop"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+
+    </LinearLayout>
 </LinearLayout>

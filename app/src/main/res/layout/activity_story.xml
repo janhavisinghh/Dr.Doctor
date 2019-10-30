@@ -7,14 +7,13 @@
     tools:context=".StoryActivity"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
-
     <ImageView
         android:id="@+id/comicStripIv"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:src="@drawable/hospital1"
+        android:src="@drawable/homeboy1"
         android:layout_gravity="center"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         />
 
     <Button

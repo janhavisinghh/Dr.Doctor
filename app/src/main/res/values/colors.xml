@@ -10,4 +10,9 @@
     <color name="nextButtonColor">#ffea00</color>
 
     <color name="black_overlay">#66000000</color>
+    <color name="girl_avatar_bg">#f48fb1</color>
+    <color name="boy_avatar_bg">#80cbc4</color>
+
+    <color name="girl_avatar_bg_dark">#ad1457</color>
+    <color name="boy_avatar_bg_dark">#00796b</color>
 </resources>
