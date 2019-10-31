@@ -9,41 +9,68 @@
     android:orientation="vertical">
     <LinearLayout
         android:id="@+id/menuItemLinearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
         android:orientation="horizontal"
         android:visibility="visible">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/star"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/dr_doctor_logo_black"
             android:padding="5dp"
+            android:layout_gravity="end"
             />
+
         <TextView
-            android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="25sp"
+            android:layout_gravity="end"
+            android:fontFamily="casual"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="Dr. Doctor"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:paddingRight="5dp"/>
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/heart"
-            android:padding="5dp"
-            />
-        <TextView
-            android:id="@+id/lifeTextView"
-            android:layout_width="wrap_content"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3"
-            android:textSize="25sp"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:paddingRight="5dp"/>
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:layout_gravity="end"
+            android:gravity="end">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/star"
+                android:padding="5dp"
+                />
+            <TextView
+                android:id="@+id/scoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:paddingRight="5dp"/>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/heart"
+                android:padding="5dp"
+                />
+            <TextView
+                android:id="@+id/lifeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:paddingRight="5dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView
@@ -98,7 +125,7 @@
                 android:autoSizeMaxTextSize="25sp"
                 android:autoSizeStepGranularity="2sp"
                 android:paddingTop="5dp"
-                android:paddingEnd="5dp"
+                android:paddingEnd="10dp"
                 android:textAlignment="textStart"
                 android:paddingStart="20dp"
                 android:background="@drawable/ripple"
@@ -124,7 +151,7 @@
                 android:text="2. 25"
                 android:textAlignment="textStart"
                 android:paddingStart="20dp"
-                android:paddingEnd="5dp"
+                android:paddingEnd="10dp"
                 android:background="@drawable/ripple"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
@@ -150,7 +177,7 @@
                 android:background="@drawable/ripple"
                 android:layout_marginTop="5dp"
                 android:paddingBottom="5dp"
-                android:paddingEnd="5dp"
+                android:paddingEnd="10dp"
                 android:layout_weight="1"
                 android:maxLines="3"
                 android:textColor="@color/colorWhite"
@@ -173,7 +200,7 @@
                 android:paddingBottom="5dp"
                 android:background="@drawable/ripple"
                 android:layout_marginTop="5dp"
-                android:paddingEnd="5dp"
+                android:paddingEnd="10dp"
                 android:layout_weight="1"
                 android:maxLines="3"
                 android:textColor="@color/colorWhite"
@@ -235,6 +262,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="200dp">
         <TextView
@@ -261,6 +289,7 @@
             android:textStyle="bold|italic"
             android:textSize="150sp"
             android:layout_gravity="center"/>
+
         </LinearLayout>
 
     </FrameLayout>
@@ -282,39 +311,39 @@
             android:scaleType="fitCenter"
             android:layout_marginTop="100dp"/>
 
-            <TextView
-                android:id="@+id/youDiedTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="You Died!"
-                android:textColor="#000000"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:textStyle="bold|italic"
-                android:textSize="70sp"
-                android:layout_below="@+id/dead_emoji"
-                android:gravity="center"
-                android:layout_centerHorizontal="true" />
-            <Button
-                android:id="@+id/tryAgainButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TRY AGAIN?"
-                android:textSize="50sp"
-                android:layout_below="@id/youDiedTv"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/tryagain_btn_ripple"
-                android:padding="10dp"
-                android:textStyle="bold|italic"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:textColor="@color/wrongAnswer"
-                />
+        <TextView
+            android:id="@+id/youDiedTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Died!"
+            android:textColor="#000000"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textStyle="bold|italic"
+            android:textSize="70sp"
+            android:layout_below="@+id/dead_emoji"
+            android:gravity="center"
+            android:layout_centerHorizontal="true" />
+        <Button
+            android:id="@+id/tryAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRY AGAIN?"
+            android:textSize="50sp"
+            android:layout_below="@id/youDiedTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/tryagain_btn_ripple"
+            android:padding="10dp"
+            android:textStyle="bold|italic"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@color/wrongAnswer"
+            />
 
         <Button
             android:id="@+id/visitIgiftLifeButton"
@@ -323,6 +352,88 @@
             android:text="Visit IgiftLife.com to learn about organ donation"
             android:textSize="15sp"
             android:layout_below="@id/tryAgainButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ripple_igiftlife_button"
+            android:padding="5dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/colorWhite"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/gameEndedRelativeLayout"
+        android:visibility="gone"
+        android:background="@color/black"
+        android:layout_marginTop="70dp">
+
+        <TextView
+            android:id="@+id/igiftlife_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Doctor is a small initiative by IgiftLife to spread awareness on Organ Donation."
+            android:textColor="@color/colorWhite"
+            android:shadowColor="@color/grey_font"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textStyle="italic"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:layout_marginTop="70dp"
+            />
+
+        <ImageView
+            android:id="@+id/igiftLifeLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/igiftlifelogo"
+            android:layout_gravity="top"
+            android:scaleY="1"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:layout_below="@id/igiftlife_intro"/>
+
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PLAY AGAIN!"
+            android:textSize="50sp"
+            android:layout_below="@id/igiftLifeLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/ripple"
+            android:padding="10dp"
+            android:textStyle="bold|italic"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@color/igiftLifeButtonColor"
+            />
+
+        <Button
+            android:id="@+id/visitIgiftLifeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Do you want to pledge a card? Click Here to visit IgiftLife.com"
+            android:textSize="15sp"
+            android:layout_below="@id/playAgainButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/ripple_igiftlife_button"

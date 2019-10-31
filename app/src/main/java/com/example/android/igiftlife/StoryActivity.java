@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -16,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,12 +45,15 @@ public class StoryActivity extends AppCompatActivity {
     private TextView lifeTextView;
     private FrameLayout scoreCardFrameLayout;
     private TextView scoreCardTextView;
-    private RelativeLayout lifeEndedFrameLayout;
+    private RelativeLayout lifeEndedRelativeLayout;
     private Button tryAgainButton;
     private Button visitIgiftLifeButton;
     private LinearLayout menuItemLinearLayout;
     private String igiftLifeUrl = "https://igiftlife.com/";
     private LinearLayout optionsLinearLayout;
+    private RelativeLayout gameEndedRelativeLayout;
+    private Button gameEndedPlayAgainButton;
+    private Button gameEndedVisitIgiftLifeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +76,14 @@ public class StoryActivity extends AppCompatActivity {
         lifeTextView = findViewById(R.id.lifeTextView);
         scoreCardFrameLayout = findViewById(R.id.scoreCardFrameLayout);
         scoreCardTextView = findViewById(R.id.scoreCardTextView);
-        lifeEndedFrameLayout = findViewById(R.id.lifeEndedFrameLayout);
+        lifeEndedRelativeLayout = findViewById(R.id.lifeEndedFrameLayout);
         tryAgainButton = findViewById(R.id.tryAgainButton);
         visitIgiftLifeButton = findViewById(R.id.visitIgiftLifeButton);
         menuItemLinearLayout = findViewById(R.id.menuItemLinearLayout);
         optionsLinearLayout = findViewById(R.id.options_layout);
+        gameEndedRelativeLayout = findViewById(R.id.gameEndedRelativeLayout);
+        gameEndedPlayAgainButton = findViewById(R.id.playAgainButton);
+        gameEndedVisitIgiftLifeButton = findViewById(R.id.visitIgiftLifeBtn);
 
         handler = new Handler();
 
@@ -455,6 +459,33 @@ public class StoryActivity extends AppCompatActivity {
         menuItemLinearLayout.setVisibility(View.GONE);
         scoreCardFrameLayout.setVisibility(View.VISIBLE);
         scoreCardTextView.setText(String.valueOf(score));
+        scoreCardFrameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scoreCardFrameLayout.setVisibility(View.GONE);
+                gameEndedRelativeLayout.setVisibility(View.VISIBLE);
+
+                gameEndedPlayAgainButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent myIntent = new Intent(StoryActivity.this, MainActivity.class);
+                        StoryActivity.this.startActivity(myIntent);
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                        finish();
+                    }
+                });
+
+                gameEndedVisitIgiftLifeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(igiftLifeUrl));
+                        startActivity(i);
+                    }
+                });
+            }
+        });
+
     }
 
     private void lifeEnds(){
@@ -464,18 +495,15 @@ public class StoryActivity extends AppCompatActivity {
         optionsLinearLayout.setVisibility(View.GONE);
 
         menuItemLinearLayout.setVisibility(View.GONE);
-        lifeEndedFrameLayout.setVisibility(View.VISIBLE);
+        lifeEndedRelativeLayout.setVisibility(View.VISIBLE);
 
         tryAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                count = 0;
-                score=0;
-                life=3;
-                setScore();
-                setLife();
-                showComicStrip();
-                lifeEndedFrameLayout.setVisibility(View.GONE);
+                Intent myIntent = new Intent(StoryActivity.this, MainActivity.class);
+                StoryActivity.this.startActivity(myIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
 
