@@ -7,6 +7,45 @@
     tools:context=".StoryActivity"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/menuItemLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="horizontal"
+        android:visibility="visible">
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/star"
+            android:padding="5dp"
+            />
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="25sp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:paddingRight="5dp"/>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/heart"
+            android:padding="5dp"
+            />
+        <TextView
+            android:id="@+id/lifeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="25sp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:paddingRight="5dp"/>
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/comicStripIv"
         android:layout_width="match_parent"
@@ -14,6 +53,7 @@
         android:src="@drawable/homeboy1"
         android:layout_gravity="center"
         android:scaleType="fitXY"
+        android:visibility="visible"
         />
 
     <Button
@@ -26,48 +66,263 @@
         android:layout_marginTop="10dp"
         android:visibility="visible"/>
 
-
-    <Button
-        android:id="@+id/mcq_option_1"
+    <LinearLayout
+        android:id="@+id/options_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:text="1. 18"
-        android:textAlignment="textStart"
-        android:paddingStart="20dp"
-        android:background="@drawable/ripple"
-        android:layout_marginTop="5dp"
+        android:layout_height="0dp"
         android:visibility="gone"
-        />
+        android:orientation="vertical"
+        android:layout_weight="2">
 
-    <Button
-        android:id="@+id/mcq_option_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:text="2. 25"
-        android:textAlignment="textStart"
-        android:paddingStart="20dp"
-        android:background="@drawable/ripple"
-        android:layout_marginTop="5dp"
-        android:visibility="gone"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/mcq_option_1"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="1. 18"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeStepGranularity="2sp"
+                android:textAlignment="textStart"
+                android:paddingStart="20dp"
+                android:background="@drawable/ripple"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="0.5"
+                android:maxLines="3"
+                />
 
-    <Button
-        android:id="@+id/mcq_option_3"
+            <Button
+                android:id="@+id/mcq_option_2"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeStepGranularity="2sp"
+                android:text="2. 25"
+                android:textAlignment="textStart"
+                android:paddingStart="20dp"
+                android:background="@drawable/ripple"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:paddingBottom="10dp"
+                android:maxLines="3"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/mcq_option_3"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeStepGranularity="2sp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="3. No age bar"
+                android:textAlignment="textStart"
+                android:paddingStart="20dp"
+                android:background="@drawable/ripple"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="0.5"
+                android:maxLines="3"
+                />
+            <Button
+                android:id="@+id/mcq_option_4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginRight="5dp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeStepGranularity="2sp"
+                android:layout_marginLeft="5dp"
+                android:text="4. None of the above"
+                android:textAlignment="textStart"
+                android:paddingStart="20dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/ripple"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:maxLines="3"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:text="3. No age bar"
-        android:textAlignment="textStart"
-        android:paddingStart="20dp"
-        android:background="@drawable/ripple"
-        android:layout_marginTop="5dp"
+        android:layout_height="match_parent"
+        android:id="@+id/scoreCardFrameLayout"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confettiii"
+                android:layout_gravity="bottom"
+                />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confettiii"
+                android:layout_gravity="bottom"
+                />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confettiii"
+                android:layout_gravity="bottom"
+                />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confettiii"
+                android:layout_gravity="bottom"
+                />
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/confettiii"
+                android:layout_gravity="bottom"
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/confetti_image"
+            android:layout_gravity="top"
+            android:scaleY="1"
+            android:scaleType="centerCrop"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="200dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Score!"
+            android:textColor="@color/score_card_color"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textStyle="bold|italic"
+            android:textSize="70sp"/>
+        <TextView
+            android:id="@+id/scoreCardTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60"
+            android:textColor="@color/colorWhite"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textStyle="bold|italic"
+            android:textSize="150sp"
+            android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lifeEndedFrameLayout"
         android:visibility="gone"
-        />
+        android:background="@color/wrongAnswer">
+
+        <ImageView
+            android:id="@+id/dead_emoji"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/deademoji"
+            android:layout_gravity="top"
+            android:scaleY="1"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="100dp"/>
+
+            <TextView
+                android:id="@+id/youDiedTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You Died!"
+                android:textColor="#000000"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:textStyle="bold|italic"
+                android:textSize="70sp"
+                android:layout_below="@+id/dead_emoji"
+                android:gravity="center"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/tryAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRY AGAIN?"
+                android:textSize="50sp"
+                android:layout_below="@id/youDiedTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/tryagain_btn_ripple"
+                android:padding="10dp"
+                android:textStyle="bold|italic"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:textColor="@color/wrongAnswer"
+                />
+
+        <Button
+            android:id="@+id/visitIgiftLifeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visit IgiftLife.com to learn about organ donation"
+            android:textSize="15sp"
+            android:layout_below="@id/tryAgainButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ripple_igiftlife_button"
+            android:padding="5dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/colorWhite"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            />
+
+    </RelativeLayout>
 
 
 </LinearLayout>

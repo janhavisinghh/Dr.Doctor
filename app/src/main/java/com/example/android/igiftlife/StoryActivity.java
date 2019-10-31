@@ -2,6 +2,8 @@ package com.example.android.igiftlife;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -9,7 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +24,7 @@ public class StoryActivity extends AppCompatActivity {
 
     private int count = 0;
     private int score = 0;
+    private int life = 3;
     private ArrayList<Story> girlStoryList;
     private ArrayList<Story> boyStoryList;
     private ArrayList<Story> storyList;
@@ -25,28 +33,54 @@ public class StoryActivity extends AppCompatActivity {
     private Button option1;
     private Button option2;
     private Button option3;
+    private Button option4;
     private Vibrator vibe;
     private Handler handler;
     private int isABoyCharacter;
     private String IS_A_BOY_CHAR = "IS_A_BOY_CHAR";
     private String STORY_LIST = "STORY_LIST";
     private String STORY_LIST_COUNT = "STORY_LIST_COUNT";
+    private String SCORE = "SCORE";
+    private String LIFE_POINTS = "LIFE_POINTS";
+
+    private TextView scoreTextView;
+    private TextView lifeTextView;
+    private FrameLayout scoreCardFrameLayout;
+    private TextView scoreCardTextView;
+    private RelativeLayout lifeEndedFrameLayout;
+    private Button tryAgainButton;
+    private Button visitIgiftLifeButton;
+    private LinearLayout menuItemLinearLayout;
+    private String igiftLifeUrl = "https://igiftlife.com/";
+    private LinearLayout optionsLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story);
 
+        getSupportActionBar().hide();
 
         girlStoryList = new ArrayList<>();
         boyStoryList = new ArrayList<>();
         storyList = new ArrayList<>();
 
         nextButton = findViewById(R.id.nextStoryButton);
-        option1 = (Button) findViewById(R.id.mcq_option_1);
-        option2 = (Button) findViewById(R.id.mcq_option_2);
-        option3 = (Button) findViewById(R.id.mcq_option_3);
+        option1 = findViewById(R.id.mcq_option_1);
+        option2 = findViewById(R.id.mcq_option_2);
+        option3 = findViewById(R.id.mcq_option_3);
+        option4 = findViewById(R.id.mcq_option_4);
         storyImageView = findViewById(R.id.comicStripIv);
+        scoreTextView = findViewById(R.id.scoreTextView);
+        lifeTextView = findViewById(R.id.lifeTextView);
+        scoreCardFrameLayout = findViewById(R.id.scoreCardFrameLayout);
+        scoreCardTextView = findViewById(R.id.scoreCardTextView);
+        lifeEndedFrameLayout = findViewById(R.id.lifeEndedFrameLayout);
+        tryAgainButton = findViewById(R.id.tryAgainButton);
+        visitIgiftLifeButton = findViewById(R.id.visitIgiftLifeButton);
+        menuItemLinearLayout = findViewById(R.id.menuItemLinearLayout);
+        optionsLinearLayout = findViewById(R.id.options_layout);
+
         handler = new Handler();
 
         if(savedInstanceState == null) {
@@ -58,7 +92,7 @@ public class StoryActivity extends AppCompatActivity {
             girlStoryList.add(new Story(R.drawable.hospitalgirl1, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl2, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3. Not Sure"}, 1)));
+            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family.","4. Not Sure"}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl5, true, new Options("Should it not be Kabeer’s choice if he wants to donate his organs or not? But now who will decide if Kabeer’s organs can be donated?", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
@@ -70,7 +104,7 @@ public class StoryActivity extends AppCompatActivity {
 
             girlStoryList.add(new Story(R.drawable.hospitalgirl11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl12, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+            girlStoryList.add(new Story(R.drawable.girlquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
             girlStoryList.add(new Story(R.drawable.girlquiz4, true, new Options("Is there a priority list for rich and famous people to get organs?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
             girlStoryList.add(new Story(R.drawable.girlquiz5, true, new Options("After a person’s death, Can that person’s family refuse to donate his/her organs in spite of the person having a donor card?\n", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
 
@@ -114,7 +148,7 @@ public class StoryActivity extends AppCompatActivity {
 
             boyStoryList.add(new Story(R.drawable.hospitalboy11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy12, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+            boyStoryList.add(new Story(R.drawable.boyquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
             boyStoryList.add(new Story(R.drawable.boyquiz4, true, new Options("Is there a priority list for rich and famous people to get organs?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
             boyStoryList.add(new Story(R.drawable.boyquiz5, true, new Options("After a person’s death, Can that person’s family refuse to donate his/her organs in spite of the person having a donor card?\n", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
 
@@ -140,15 +174,23 @@ public class StoryActivity extends AppCompatActivity {
             boyStoryList.add(new Story(R.drawable.hospitalboy25, false, new Options("", new String[]{}, -1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy26, false, new Options("", new String[]{}, -1)));
 
+            storyList = null;
+
             if (isABoyCharacter == 0)
                 storyList = girlStoryList;
             else
                 storyList = boyStoryList;
+
+            score = 0;
+            life = 3;
+            count = 0;
         }
         else{
             storyList = (ArrayList<Story>) savedInstanceState.getSerializable(STORY_LIST);
             count = savedInstanceState.getInt(STORY_LIST_COUNT);
             isABoyCharacter = savedInstanceState.getInt(IS_A_BOY_CHAR);
+            score = savedInstanceState.getInt(SCORE);
+            life = savedInstanceState.getInt(LIFE_POINTS);
         }
 
         showComicStrip();
@@ -156,7 +198,17 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void showComicStrip() {
-        storyImageView.setImageResource(storyList.get(count).getStoryImageIds());
+        if(life==0)
+            lifeEnds();
+        else{
+        nextButton.setVisibility(View.VISIBLE);
+        storyImageView.setVisibility(View.VISIBLE);
+            menuItemLinearLayout.setVisibility(View.VISIBLE);
+            if(storyList.size()==count)
+            ifGameEnds();
+        else{
+            storyImageView.setImageResource(storyList.get(count).getStoryImageIds());
+
         ObjectAnimator.ofFloat(storyImageView, View.ALPHA, 0.2f, 1.0f).setDuration(1000).start();
         if (storyList.get(count).getIS_QUESTION_STORY() == true) {
             showQuestion(storyList.get(count).getOptions());
@@ -166,14 +218,10 @@ public class StoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 count++;
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        showComicStrip();
-                    }
-                },200);
+              showComicStrip();
             }
-        });
+        }); }
+        }
     }
 
     private void showQuestion(Options options) {
@@ -182,19 +230,22 @@ public class StoryActivity extends AppCompatActivity {
         option1.setBackground(getResources().getDrawable(R.drawable.ripple));
         option2.setBackground(getResources().getDrawable(R.drawable.ripple));
         option3.setBackground(getResources().getDrawable(R.drawable.ripple));
+        option4.setBackground(getResources().getDrawable(R.drawable.ripple));
+
 
         option1.setEnabled(true);
         option2.setEnabled(true);
         option3.setEnabled(true);
+        option4.setEnabled(true);
 
-        option1.setVisibility(View.VISIBLE);
-        option2.setVisibility(View.VISIBLE);
-        option3.setVisibility(View.VISIBLE);
+        optionsLinearLayout.setVisibility(View.VISIBLE);
+
         nextButton.setVisibility(View.GONE);
 
         option1.setText(options.options_text[0]);
         option2.setText(options.options_text[1]);
         option3.setText(options.options_text[2]);
+//        option4.setText(options.options_text[3]);
 
 
         option1.setOnClickListener(new View.OnClickListener() {
@@ -203,28 +254,40 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
+                option4.setEnabled(false);
+
                 if (correct_answer != 1) {
+                    life = life - 1;
                     option1.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
                     vibe.vibrate(300);
                     if (correct_answer == 2)
                         option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
-                    else
+                    else if(correct_answer == 3)
                         option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    else
+                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
                 }
-                else
+                else{
                     option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    score = score + 10;
+                    setScore();
+                }
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        option1.setVisibility(View.GONE);
-                        option2.setVisibility(View.GONE);
-                        option3.setVisibility(View.GONE);
-                        nextButton.setVisibility(View.VISIBLE);
-                        count++;
-                        showComicStrip();
-                    }
-                }, 2000);
+                if(life==0)
+                    lifeEnds();
+                else {
+                    setLife();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            optionsLinearLayout.setVisibility(View.GONE);
+
+                            nextButton.setVisibility(View.VISIBLE);
+                            count++;
+                            showComicStrip();
+                        }
+                    }, 2000);
+                }
             }
         });
 
@@ -234,28 +297,42 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
+                option4.setEnabled(false);
+
                 if (correct_answer != 2) {
+                    life = life - 1;
                     option2.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
-                    else
+                    else if(correct_answer == 3)
                         option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
-                }
-                else
-                    option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    else
+                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        option1.setVisibility(View.GONE);
-                        option2.setVisibility(View.GONE);
-                        option3.setVisibility(View.GONE);
-                        nextButton.setVisibility(View.VISIBLE);
-                        count++;
-                        showComicStrip();
-                    }
-                }, 2000);
+                }
+                else {
+                    option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    score = score + 10;
+                    setScore();
+                }
+
+                if(life==0)
+                    lifeEnds();
+                else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            setLife();
+                            optionsLinearLayout.setVisibility(View.GONE);
+
+                            nextButton.setVisibility(View.VISIBLE);
+                            count++;
+                            showComicStrip();
+
+                        }
+                    }, 2000);
+                }
 
             }
         });
@@ -266,27 +343,87 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
+                option4.setEnabled(false);
                 if (correct_answer != 3) {
+                    life = life - 1;
                     option3.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
-                    else
+                    else if(correct_answer == 2)
                         option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    else
+                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+
+
                 }
-                else
+                else{
                     option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        option1.setVisibility(View.GONE);
-                        option2.setVisibility(View.GONE);
-                        option3.setVisibility(View.GONE);
-                        nextButton.setVisibility(View.VISIBLE);
-                        count++;
-                        showComicStrip();
-                    }
-                }, 2000);
+                    score = score + 10;
+                    setScore();
+                }
+
+                if(life==0)
+                    lifeEnds();
+                else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            setLife();
+                            optionsLinearLayout.setVisibility(View.GONE);
+
+                            nextButton.setVisibility(View.VISIBLE);
+                            count++;
+                            showComicStrip();
+
+                        }
+                    }, 2000);
+                }
+
+            }
+        });
+        option4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                option1.setEnabled(false);
+                option2.setEnabled(false);
+                option3.setEnabled(false);
+                option4.setEnabled(false);
+                if (correct_answer != 4) {
+                    life = life - 1;
+                    option4.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
+                    vibe.vibrate(300);
+                    if (correct_answer == 1)
+                        option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    else if(correct_answer == 2)
+                        option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    else
+                        option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+
+
+                }
+                else{
+                    option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    score = score + 10;
+                    setScore();
+                }
+
+                if(life==0)
+                    lifeEnds();
+                else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            setLife();
+                            optionsLinearLayout.setVisibility(View.GONE);
+
+                            nextButton.setVisibility(View.VISIBLE);
+                            count++;
+                            showComicStrip();
+
+                        }
+                    }, 2000);
+                }
 
             }
         });
@@ -298,6 +435,59 @@ public class StoryActivity extends AppCompatActivity {
         currentState.putSerializable(IS_A_BOY_CHAR, isABoyCharacter);
         currentState.putSerializable(STORY_LIST, storyList);
         currentState.putSerializable(STORY_LIST_COUNT, count);
+        currentState.putSerializable(SCORE, score);
+        currentState.putSerializable(LIFE_POINTS, life);
+    }
+
+    private void setScore(){
+        scoreTextView.setText(String.valueOf(score));
+    }
+
+    private void setLife(){
+            lifeTextView.setText(String.valueOf(life));
+    }
+
+    private void ifGameEnds(){
+        nextButton.setVisibility(View.GONE);
+        storyImageView.setVisibility(View.GONE);
+        optionsLinearLayout.setVisibility(View.GONE);
+
+        menuItemLinearLayout.setVisibility(View.GONE);
+        scoreCardFrameLayout.setVisibility(View.VISIBLE);
+        scoreCardTextView.setText(String.valueOf(score));
+    }
+
+    private void lifeEnds(){
+        vibe.vibrate(1000);
+        nextButton.setVisibility(View.GONE);
+        storyImageView.setVisibility(View.GONE);
+        optionsLinearLayout.setVisibility(View.GONE);
+
+        menuItemLinearLayout.setVisibility(View.GONE);
+        lifeEndedFrameLayout.setVisibility(View.VISIBLE);
+
+        tryAgainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count = 0;
+                score=0;
+                life=3;
+                setScore();
+                setLife();
+                showComicStrip();
+                lifeEndedFrameLayout.setVisibility(View.GONE);
+            }
+        });
+
+        visitIgiftLifeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(igiftLifeUrl));
+                startActivity(i);
+            }
+        });
+
     }
 
 }
