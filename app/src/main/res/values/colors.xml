@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#37474f</color>
+    <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#263238</color>
     <color name="colorAccent">#72035c</color>
     <color name="colorAccentLight">#cfd8dc</color>
     <color name="colorWhite">#ffffff</color>
     <color name="correctAnswer">#00c853</color>
-    <color name="wrongAnswer">#d50000</color>
+    <color name="wrongAnswer">#f44336</color>
     <color name="nextButtonColor">#ffea00</color>
 
     <color name="black_overlay">#66000000</color>
@@ -28,5 +28,11 @@
     <color name="black">#000000</color>
     <color name="start_button">#1de9b6</color>
     <color name="start_btn_girl">#880e4f</color>
+
+    <color name="primary_dark_overlay">#66263238</color>
+    <color name="grey_overlay">#66212121</color>
+    <color name="grey">#212121</color>
+    <color name="dark_green">#33691e</color>
+    <color name="dark_green_overlay">#33691e</color>
 
 </resources>

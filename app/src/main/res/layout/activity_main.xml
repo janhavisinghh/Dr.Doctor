@@ -64,15 +64,17 @@
                 android:id="@+id/girl_intro_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/start_button_ripple_girl"
+                android:background="@drawable/ripple"
                 android:layout_gravity="bottom|end"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="START >>"
+                android:layout_marginLeft="10dp"
+                android:text="Start >>"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:padding="5dp"
-                android:textColor="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"/>
         </FrameLayout>
         <FrameLayout
             android:id="@+id/boy_intro"
@@ -98,17 +100,19 @@
                 />
             <Button
                 android:id="@+id/boy_intro_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/start_button_ripple_boy"
+                android:background="@drawable/ripple"
                 android:layout_gravity="bottom|end"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="START >>"
+                android:layout_marginRight="10dp"
+                android:text="Start >>"
                 android:textStyle="bold"
                 android:textSize="15sp"
                 android:padding="5dp"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textColor="@color/colorWhite"
+                android:textAllCaps="false"/>
         </FrameLayout>
         <ImageButton
             android:id="@+id/boyCharacter"

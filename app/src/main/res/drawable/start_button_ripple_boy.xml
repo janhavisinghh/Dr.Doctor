@@ -3,7 +3,7 @@
     android:color="@color/colorPrimaryDark">
     <item android:id="@android:id/mask">
         <shape android:shape="rectangle">
-            <solid android:color="@color/start_button" />
+            <solid android:color="@color/correctAnswer" />
             <corners android:radius="5dp" />
         </shape>
     </item>
@@ -12,10 +12,11 @@
         <shape android:shape="rectangle">
             <gradient
                 android:angle="90"
-                android:endColor="@color/start_button"
-                android:startColor="@color/start_button"
+                android:endColor="@color/correctAnswer"
+                android:startColor="@color/correctAnswer"
                 android:type="linear" />
             <corners android:radius="5dp" />
+            <stroke android:width="5px" android:color="@color/dark_green" />
         </shape>
     </item>
 </ripple>

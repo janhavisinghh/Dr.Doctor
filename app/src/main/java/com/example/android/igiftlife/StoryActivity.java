@@ -258,17 +258,17 @@ public class StoryActivity extends AppCompatActivity {
 
                 if (correct_answer != 1) {
                     life = life - 1;
-                    option1.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
+                    option1.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
                     if (correct_answer == 2)
-                        option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else if(correct_answer == 3)
-                        option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                 }
                 else{
-                    option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
@@ -301,18 +301,18 @@ public class StoryActivity extends AppCompatActivity {
 
                 if (correct_answer != 2) {
                     life = life - 1;
-                    option2.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
+                    option2.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
-                        option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else if(correct_answer == 3)
-                        option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
                 }
                 else {
-                    option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
@@ -346,19 +346,19 @@ public class StoryActivity extends AppCompatActivity {
                 option4.setEnabled(false);
                 if (correct_answer != 3) {
                     life = life - 1;
-                    option3.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
+                    option3.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
-                        option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else if(correct_answer == 2)
-                        option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
 
                 }
                 else{
-                    option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
@@ -391,19 +391,19 @@ public class StoryActivity extends AppCompatActivity {
                 option4.setEnabled(false);
                 if (correct_answer != 4) {
                     life = life - 1;
-                    option4.setBackgroundColor(getResources().getColor(R.color.wrongAnswer));
+                    option4.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
-                        option1.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else if(correct_answer == 2)
-                        option2.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option3.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
 
                 }
                 else{
-                    option4.setBackgroundColor(getResources().getColor(R.color.correctAnswer));
+                    option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
