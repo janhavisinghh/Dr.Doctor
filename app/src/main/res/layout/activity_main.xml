@@ -128,7 +128,7 @@
         android:id="@+id/areYouAGirlOrBoy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Are you a Girl or a Boy?"
+        android:text="Who would you like to meet?"
         android:textColor="@color/colorWhite"
         android:textStyle="bold"
         android:textSize="25sp"
@@ -145,7 +145,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Girl"
+            android:text="Kaira"
             android:textStyle="bold"
             android:textSize="25sp"
             android:textColor="@color/colorWhite"
@@ -155,7 +155,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Boy"
+            android:text="Raj"
             android:textStyle="bold"
             android:textSize="25sp"
             android:textColor="@color/colorWhite"

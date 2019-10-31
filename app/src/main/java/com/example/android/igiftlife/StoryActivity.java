@@ -50,6 +50,7 @@ public class StoryActivity extends AppCompatActivity {
     private Button visitIgiftLifeButton;
     private LinearLayout menuItemLinearLayout;
     private String igiftLifeUrl = "https://igiftlife.com/";
+    private String pledgeFormUrl = "https://igiftlife.com/register-for-organ-donation/";
     private LinearLayout optionsLinearLayout;
     private RelativeLayout gameEndedRelativeLayout;
     private Button gameEndedPlayAgainButton;
@@ -101,10 +102,15 @@ public class StoryActivity extends AppCompatActivity {
             girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl8, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, Kidneys, Liver, and Pancreas", "2. Heart, Skin, Liver and Brain", "3. Kidneys, Pancreas, Liver, and Lungs"}, 1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 3)));
+            girlStoryList.add(new Story(R.drawable.hospitalgirl9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+            girlStoryList.add(new Story(R.drawable.hospitalgirl10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
             girlStoryList.add(new Story(R.drawable.girlquiz1, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.girlquiz2, false, new Options("", new String[]{}, -1)));
+
+            girlStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+            girlStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+            girlStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+            girlStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
 
             girlStoryList.add(new Story(R.drawable.hospitalgirl11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl12, false, new Options("", new String[]{}, -1)));
@@ -123,7 +129,6 @@ public class StoryActivity extends AppCompatActivity {
             girlStoryList.add(new Story(R.drawable.hospitalgirl18, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.girlquiz7, true, new Options("If I have a pledge card and I am in the hospital, will the doctor try to save me?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
             girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("Can I donate organs if I’m sick?", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
-
 
             girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("How long can organs and tissue survive once harvested till transplantation if preserved?", new String[]{"1. Match the following!"}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
@@ -145,10 +150,15 @@ public class StoryActivity extends AppCompatActivity {
             boyStoryList.add(new Story(R.drawable.hospitalboy6, false, new Options("", new String[]{}, -1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy7, false, new Options("", new String[]{}, -1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy8, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, Kidneys, Liver, and Pancreas", "2. Heart, Skin, Liver and Brain", "3. Kidneys, Pancreas, Liver, and Lungs"}, 1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 3)));
+            boyStoryList.add(new Story(R.drawable.hospitalboy9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+            boyStoryList.add(new Story(R.drawable.hospitalboy10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
             boyStoryList.add(new Story(R.drawable.boyquiz1, false, new Options("", new String[]{}, -1)));
             boyStoryList.add(new Story(R.drawable.boyquiz2, false, new Options("", new String[]{}, -1)));
+
+            boyStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+            boyStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+            boyStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+            boyStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
 
             boyStoryList.add(new Story(R.drawable.hospitalboy11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy12, false, new Options("", new String[]{}, -1)));
@@ -290,7 +300,7 @@ public class StoryActivity extends AppCompatActivity {
                             count++;
                             showComicStrip();
                         }
-                    }, 2000);
+                    }, 4000);
                 }
             }
         });
@@ -335,7 +345,7 @@ public class StoryActivity extends AppCompatActivity {
                             showComicStrip();
 
                         }
-                    }, 2000);
+                    }, 4000);
                 }
 
             }
@@ -381,7 +391,7 @@ public class StoryActivity extends AppCompatActivity {
                             showComicStrip();
 
                         }
-                    }, 2000);
+                    }, 4000);
                 }
 
             }
@@ -426,7 +436,7 @@ public class StoryActivity extends AppCompatActivity {
                             showComicStrip();
 
                         }
-                    }, 2000);
+                    }, 4000);
                 }
 
             }
@@ -479,7 +489,7 @@ public class StoryActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(igiftLifeUrl));
+                        i.setData(Uri.parse(pledgeFormUrl));
                         startActivity(i);
                     }
                 });
@@ -517,6 +527,15 @@ public class StoryActivity extends AppCompatActivity {
         });
 
     }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        int count1 = count;
+//        int score1 = score;
+//        int life1 = life;
+//
+//    }
 
 }
 
