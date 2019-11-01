@@ -1,6 +1,8 @@
 package com.example.android.igiftlife;
 
-public class Story {
+import java.io.Serializable;
+
+public class Story implements Serializable {
 
 
     private int story_image_id;
@@ -25,6 +27,10 @@ public class Story {
         return IS_QUESTION_STORY;
     }
 
+    public void setIS_QUESTION_STORY(Boolean IS_QUESTION_STORY) {
+        this.IS_QUESTION_STORY = IS_QUESTION_STORY;
+    }
+
     public void setStory_image_ids(int story_image_id) {
 
         this.story_image_id = story_image_id;
@@ -35,14 +41,9 @@ public class Story {
         return options;
     }
 
-
     public void setOptions(Options options) {
 
         this.options = options;
-    }
-
-    public void setIS_QUESTION_STORY(Boolean IS_QUESTION_STORY) {
-        this.IS_QUESTION_STORY = IS_QUESTION_STORY;
     }
 
 

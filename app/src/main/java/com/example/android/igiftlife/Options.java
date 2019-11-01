@@ -1,6 +1,8 @@
 package com.example.android.igiftlife;
 
-public class Options {
+import java.io.Serializable;
+
+public class Options implements Serializable {
     String[] options_text;
     Integer correct_answer;
     String question;
@@ -11,11 +13,11 @@ public class Options {
         this.correct_answer = correct_answer;
     }
 
-    public String getQuestion(){
+    public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question){
+    public void setQuestion(String question) {
         this.question = question;
     }
 
@@ -27,12 +29,12 @@ public class Options {
         return correct_answer;
     }
 
-    public void setOptionsText(String[] option_text){
-        this.options_text = option_text;
+    public void setCorrectAnswer(Integer correct_answer) {
+        this.correct_answer = correct_answer;
     }
 
-    public void setCorrectAnswer(Integer correct_answer){
-        this.correct_answer = correct_answer;
+    public void setOptionsText(String[] option_text) {
+        this.options_text = option_text;
     }
 
 

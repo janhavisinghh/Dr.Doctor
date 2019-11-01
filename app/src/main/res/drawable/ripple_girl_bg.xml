@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple android:color="@color/girl_avatar_bg"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@android:id/mask"
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/girl_avatar_bg">
+    <item
+        android:id="@android:id/mask"
         android:drawable="@color/girl_avatar_bg" />
 </ripple>

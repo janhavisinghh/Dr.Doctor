@@ -88,7 +88,7 @@ public class StoryActivity extends AppCompatActivity {
 
         handler = new Handler();
 
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             isABoyCharacter = getIntent().getIntExtra("IS_A_BOY_CHAR", 0);
 
             girlStoryList.add(new Story(R.drawable.homegirl1, false, new Options("", new String[]{}, -1)));
@@ -97,7 +97,7 @@ public class StoryActivity extends AppCompatActivity {
             girlStoryList.add(new Story(R.drawable.hospitalgirl1, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl2, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family.","4. Not Sure"}, 1)));
+            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family.", "4. Not Sure"}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl5, true, new Options("Should it not be Kabeer’s choice if he wants to donate his organs or not? But now who will decide if Kabeer’s organs can be donated?", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
@@ -198,8 +198,7 @@ public class StoryActivity extends AppCompatActivity {
             score = 0;
             life = 3;
             count = 0;
-        }
-        else{
+        } else {
             storyList = (ArrayList<Story>) savedInstanceState.getSerializable(STORY_LIST);
             count = savedInstanceState.getInt(STORY_LIST_COUNT);
             isABoyCharacter = savedInstanceState.getInt(IS_A_BOY_CHAR);
@@ -212,29 +211,30 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void showComicStrip() {
-        if(life==0)
+        if (life == 0)
             lifeEnds();
-        else{
-        nextButton.setVisibility(View.VISIBLE);
-        storyImageView.setVisibility(View.VISIBLE);
+        else {
+            nextButton.setVisibility(View.VISIBLE);
+            storyImageView.setVisibility(View.VISIBLE);
             menuItemLinearLayout.setVisibility(View.VISIBLE);
-            if(storyList.size()==count)
-            ifGameEnds();
-        else{
-            storyImageView.setImageResource(storyList.get(count).getStoryImageIds());
+            if (storyList.size() == count)
+                ifGameEnds();
+            else {
+                storyImageView.setImageResource(storyList.get(count).getStoryImageIds());
 
-        ObjectAnimator.ofFloat(storyImageView, View.ALPHA, 0.2f, 1.0f).setDuration(1000).start();
-        if (storyList.get(count).getIS_QUESTION_STORY() == true) {
-            showQuestion(storyList.get(count).getOptions());
-        }
+                ObjectAnimator.ofFloat(storyImageView, View.ALPHA, 0.2f, 1.0f).setDuration(1000).start();
+                if (storyList.get(count).getIS_QUESTION_STORY() == true) {
+                    showQuestion(storyList.get(count).getOptions());
+                }
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                count++;
-              showComicStrip();
+                nextButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        count++;
+                        showComicStrip();
+                    }
+                });
             }
-        }); }
         }
     }
 
@@ -276,18 +276,17 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 2)
                         option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if(correct_answer == 3)
+                    else if (correct_answer == 3)
                         option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
                         option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                }
-                else{
+                } else {
                     option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
 
-                if(life==0)
+                if (life == 0)
                     lifeEnds();
                 else {
                     setLife();
@@ -319,19 +318,18 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if(correct_answer == 3)
+                    else if (correct_answer == 3)
                         option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
                         option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
-                }
-                else {
+                } else {
                     option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
 
-                if(life==0)
+                if (life == 0)
                     lifeEnds();
                 else {
                     handler.postDelayed(new Runnable() {
@@ -364,20 +362,19 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if(correct_answer == 2)
+                    else if (correct_answer == 2)
                         option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
                         option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
 
-                }
-                else{
+                } else {
                     option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
 
-                if(life==0)
+                if (life == 0)
                     lifeEnds();
                 else {
                     handler.postDelayed(new Runnable() {
@@ -409,20 +406,19 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if(correct_answer == 2)
+                    else if (correct_answer == 2)
                         option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
                         option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
 
-                }
-                else{
+                } else {
                     option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
 
-                if(life==0)
+                if (life == 0)
                     lifeEnds();
                 else {
                     handler.postDelayed(new Runnable() {
@@ -453,15 +449,15 @@ public class StoryActivity extends AppCompatActivity {
         currentState.putSerializable(LIFE_POINTS, life);
     }
 
-    private void setScore(){
+    private void setScore() {
         scoreTextView.setText(String.valueOf(score));
     }
 
-    private void setLife(){
-            lifeTextView.setText(String.valueOf(life));
+    private void setLife() {
+        lifeTextView.setText(String.valueOf(life));
     }
 
-    private void ifGameEnds(){
+    private void ifGameEnds() {
         nextButton.setVisibility(View.GONE);
         storyImageView.setVisibility(View.GONE);
         optionsLinearLayout.setVisibility(View.GONE);
@@ -498,7 +494,7 @@ public class StoryActivity extends AppCompatActivity {
 
     }
 
-    private void lifeEnds(){
+    private void lifeEnds() {
         vibe.vibrate(1000);
         nextButton.setVisibility(View.GONE);
         storyImageView.setVisibility(View.GONE);
@@ -527,15 +523,14 @@ public class StoryActivity extends AppCompatActivity {
         });
 
     }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        int count1 = count;
-//        int score1 = score;
-//        int life1 = life;
-//
-//    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        int count1 = count;
+        int score1 = score;
+        int life1 = life;
+    }
 
 }
 

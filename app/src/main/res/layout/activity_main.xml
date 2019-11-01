@@ -3,164 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    tools:context=".MainActivity">
 
     <ImageButton
         android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/firstscreen"
-        android:scaleType="fitXY"
-        android:visibility="visible"
         android:background="?attr/selectableItemBackgroundBorderless"
-        />
+        android:scaleType="fitXY"
+        android:src="@drawable/firstscreen"
+        android:visibility="visible" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/girlBoyCharLinearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="1.0"
-        android:visibility="gone">
+        <LinearLayout
+            android:id="@+id/girlBoyCharLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:visibility="gone">
 
-        <ImageButton
-            android:id="@+id/girlCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/girl_avatar"
-            android:layout_weight="0.5"
-            android:scaleType="centerCrop"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            />
-        <FrameLayout
-            android:id="@+id/girl_intro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.5"
-            android:visibility="gone"
-            >
-            <TextView
-                android:id="@+id/girl_intro_text_view"
+            <ImageButton
+                android:id="@+id/girlCharacter"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@color/colorWhite"
-                tools:text="Hey my name is Kiara. I am 14 years old. Everybody teases me by calling me tiara but I think I have a nice name. I like to dance a lot. I keep dancing always. Mumma says I should take rest also I have been hello hi"
-                android:textSize="25sp"
-                android:paddingTop="15dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="65dp"
-                android:background="@color/black_overlay"
-                android:scrollbars = "vertical"
-                />
-            <Button
-                android:id="@+id/girl_intro_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple"
-                android:layout_gravity="bottom|end"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Start >>"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:padding="5dp"
-                android:textColor="@color/colorWhite"
-                android:textAllCaps="false"/>
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/boy_intro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="0.5"
-            android:visibility="gone"
-            >
-            <TextView
-                android:id="@+id/boy_intro_text_view"
+                android:layout_weight="0.5"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerCrop"
+                android:src="@drawable/girl_avatar" />
+
+            <ImageButton
+                android:id="@+id/boyCharacter"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@color/colorWhite"
-                tools:text="Hey my name is Kiara. I am 14 years old. Everybody teases me by calling me tiara but I think I have a nice name. I like to dance a lot. I keep dancing always. Mumma says I should take rest als"
-                android:textSize="25sp"
-                android:paddingTop="15dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="65dp"
-                android:background="@color/black_overlay"
-                android:scrollbars = "vertical"
-                />
-            <Button
-                android:id="@+id/boy_intro_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple"
-                android:layout_gravity="bottom|end"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Start >>"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:padding="5dp"
-                android:textColor="@color/colorWhite"
-                android:textAllCaps="false"/>
-        </FrameLayout>
-        <ImageButton
-            android:id="@+id/boyCharacter"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/boy_avatar"
-            android:layout_weight="0.5"
-            android:scaleType="centerCrop"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            />
-    </LinearLayout>
-    <TextView
-        android:id="@+id/areYouAGirlOrBoy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Who would you like to meet?"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textAlignment="center"
-        android:visibility="gone"/>
-     <LinearLayout
-        android:id="@+id/girlBoyCharText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="1.0"
-        android:visibility="gone"
-        android:layout_gravity="bottom">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Kaira"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="@color/colorWhite"
-            android:textAlignment="center"
-            android:layout_weight="0.5"/>
+                android:layout_weight="0.5"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="centerCrop"
+                android:src="@drawable/boy_avatar" />
+        </LinearLayout>
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/areYouAGirlOrBoy"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Raj"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:textColor="@color/colorWhite"
+            android:text="Who would you like to meet?"
             android:textAlignment="center"
-            android:layout_weight="0.5"/>
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/girlBoyCharText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.0"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Kiara"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Raj"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

@@ -1,196 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StoryActivity"
     android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".StoryActivity">
+
     <LinearLayout
         android:id="@+id/menuItemLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:visibility="visible">
+
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:src="@drawable/dr_doctor_logo_black"
-            android:padding="5dp"
             android:layout_gravity="end"
-            />
+            android:padding="5dp"
+            android:src="@drawable/dr_doctor_logo_black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:fontFamily="casual"
-            android:paddingRight="5dp"
             android:paddingTop="5dp"
+            android:paddingRight="5dp"
             android:text="Dr. Hope"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="visible"
             android:layout_gravity="end"
-            android:gravity="end">
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:src="@drawable/star"
                 android:padding="5dp"
-                />
+                android:src="@drawable/star" />
+
             <TextView
                 android:id="@+id/scoreTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingRight="5dp"
                 android:text="0"
-                android:textSize="30sp"
                 android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:paddingRight="5dp"/>
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:src="@drawable/heart"
                 android:padding="5dp"
-                />
+                android:src="@drawable/heart" />
+
             <TextView
                 android:id="@+id/lifeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingRight="5dp"
                 android:text="3"
-                android:textSize="30sp"
                 android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:paddingRight="5dp"/>
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:layout_weight="10"
         android:orientation="vertical"
-        android:layout_weight="10">
-    <ImageView
-        android:id="@+id/comicStripIv"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:src="@drawable/homeboy1"
-        android:layout_gravity="center"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        android:layout_weight="6"
-        />
+        android:visibility="visible">
 
-    <LinearLayout
-        android:id="@+id/options_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:orientation="vertical"
-        android:layout_weight="4"
-        android:layout_marginBottom="25dp">
-        <Button
-            android:id="@+id/mcq_option_1"
+        <ImageView
+            android:id="@+id/comicStripIv"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="1. 18"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="5sp"
-            android:autoSizeMaxTextSize="25sp"
-            android:autoSizeStepGranularity="2sp"
-            android:paddingTop="5dp"
-            android:paddingEnd="10dp"
-            android:textAlignment="textStart"
-            android:paddingStart="20dp"
-            android:background="@drawable/ripple"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_weight="1"
-            android:maxLines="3"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            />
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:layout_weight="6"
+            android:scaleType="fitXY"
+            android:src="@drawable/homeboy1"
+            android:visibility="visible" />
 
-        <Button
-            android:id="@+id/mcq_option_2"
+        <LinearLayout
+            android:id="@+id/options_layout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:autoSizeTextType="uniform"
-            android:paddingTop="5dp"
-            android:autoSizeMinTextSize="5sp"
-            android:autoSizeMaxTextSize="25sp"
-            android:autoSizeStepGranularity="2sp"
-            android:text="2. 25"
-            android:textAlignment="textStart"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:background="@drawable/ripple"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:paddingBottom="5dp"
-            android:maxLines="3"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            />
-        <Button
-            android:id="@+id/mcq_option_3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="5sp"
-            android:autoSizeMaxTextSize="25sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:text="3. No age bar"
-            android:textAlignment="textStart"
-            android:paddingTop="5dp"
-            android:paddingStart="20dp"
-            android:background="@drawable/ripple"
-            android:layout_marginTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingEnd="10dp"
-            android:layout_weight="1"
-            android:maxLines="3"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            />
-        <Button
-            android:id="@+id/mcq_option_4"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="5dp"
-            android:autoSizeTextType="uniform"
-            android:paddingTop="5dp"
-            android:autoSizeMinTextSize="5sp"
-            android:autoSizeMaxTextSize="25sp"
-            android:autoSizeStepGranularity="2sp"
-            android:layout_marginLeft="5dp"
-            android:text="4. None of the above"
-            android:textAlignment="textStart"
-            android:paddingStart="20dp"
-            android:paddingBottom="5dp"
-            android:background="@drawable/ripple"
-            android:layout_marginTop="5dp"
-            android:paddingEnd="10dp"
-            android:layout_weight="1"
-            android:maxLines="3"
-            android:textColor="@color/colorWhite"
-            android:textAllCaps="false"
-            />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/mcq_option_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/ripple"
+                android:maxLines="3"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="1. 18"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/mcq_option_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/ripple"
+                android:maxLines="3"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="2. 25"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/mcq_option_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/ripple"
+                android:maxLines="3"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="3. No age bar"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/mcq_option_4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:autoSizeMaxTextSize="25sp"
+                android:autoSizeMinTextSize="5sp"
+                android:autoSizeStepGranularity="2sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/ripple"
+                android:maxLines="3"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="4. None of the above"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -198,75 +200,76 @@
         android:id="@+id/nextStoryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next >>"
         android:layout_gravity="center"
-        android:background="@drawable/ripple"
         android:layout_marginTop="10dp"
-        android:textColor="@color/colorWhite"
+        android:layout_marginBottom="120dp"
+        android:background="@drawable/ripple"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp"
         android:shadowColor="@color/text_shadow"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
-        android:visibility="visible"
-        android:textSize="20sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:text="Next >>"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:textAlignment="center"/>
-
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:visibility="visible" />
 
     <FrameLayout
+        android:id="@+id/scoreCardFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scoreCardFrameLayout"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confettiii"
                 android:layout_gravity="bottom"
-                />
+                android:src="@drawable/confettiii" />
+
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confettiii"
                 android:layout_gravity="bottom"
-                />
+                android:src="@drawable/confettiii" />
+
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confettiii"
                 android:layout_gravity="bottom"
-                />
+                android:src="@drawable/confettiii" />
+
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confettiii"
                 android:layout_gravity="bottom"
-                />
+                android:src="@drawable/confettiii" />
+
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confettiii"
                 android:layout_gravity="bottom"
-                />
+                android:src="@drawable/confettiii" />
         </LinearLayout>
 
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/confetti_image"
             android:layout_gravity="top"
+            android:scaleType="centerCrop"
             android:scaleY="1"
-            android:scaleType="centerCrop"/>
+            android:src="@drawable/confetti_image" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -274,187 +277,185 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingTop="200dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Score!"
-            android:textColor="@color/score_card_color"
-            android:shadowColor="@color/text_shadow"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:textStyle="bold|italic"
-            android:textSize="70sp"/>
-        <TextView
-            android:id="@+id/scoreCardTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="60"
-            android:textColor="@color/colorWhite"
-            android:shadowColor="@color/text_shadow"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:textStyle="bold|italic"
-            android:textSize="150sp"
-            android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="Your Score!"
+                android:textColor="@color/score_card_color"
+                android:textSize="70sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/scoreCardTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="60"
+                android:textColor="@color/colorWhite"
+                android:textSize="150sp"
+                android:textStyle="bold|italic" />
 
         </LinearLayout>
 
     </FrameLayout>
 
     <RelativeLayout
+        android:id="@+id/lifeEndedFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lifeEndedFrameLayout"
-        android:visibility="gone"
-        android:background="@color/wrongAnswer">
+        android:background="@color/wrongAnswer"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/dead_emoji"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/deademoji"
             android:layout_gravity="top"
-            android:scaleY="1"
+            android:layout_marginTop="100dp"
             android:scaleType="fitCenter"
-            android:layout_marginTop="100dp"/>
+            android:scaleY="1"
+            android:src="@drawable/deademoji" />
 
         <TextView
             android:id="@+id/youDiedTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You Died!"
-            android:textColor="#000000"
+            android:layout_below="@+id/dead_emoji"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:textStyle="bold|italic"
+            android:text="You Died!"
+            android:textColor="#000000"
             android:textSize="70sp"
-            android:layout_below="@+id/dead_emoji"
-            android:gravity="center"
-            android:layout_centerHorizontal="true" />
+            android:textStyle="bold|italic" />
+
         <Button
             android:id="@+id/tryAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TRY AGAIN?"
-            android:textSize="50sp"
             android:layout_below="@id/youDiedTv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:background="@drawable/tryagain_btn_ripple"
             android:padding="10dp"
-            android:textStyle="bold|italic"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
+            android:text="TRY AGAIN?"
             android:textColor="@color/wrongAnswer"
-            />
+            android:textSize="50sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/visitIgiftLifeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Visit IgiftLife.com to learn about organ donation"
-            android:textSize="15sp"
             android:layout_below="@id/tryAgainButton"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ripple_igiftlife_button"
             android:padding="5dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textColor="@color/colorWhite"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            />
+            android:text="Visit IgiftLife.com to learn about organ donation"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/gameEndedRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/gameEndedRelativeLayout"
-        android:visibility="gone"
+        android:layout_marginTop="70dp"
         android:background="@color/black"
-        android:layout_marginTop="70dp">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/igiftlife_intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dr. Doctor is a small initiative by IgiftLife to spread awareness on Organ Donation."
-            android:textColor="@color/colorWhite"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
             android:shadowColor="@color/grey_font"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:textStyle="italic"
+            android:text="Dr. Doctor is a small initiative by IgiftLife to spread awareness on Organ Donation."
+            android:textColor="@color/colorWhite"
             android:textSize="20sp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
-            android:layout_marginTop="70dp"
-            />
+            android:textStyle="italic" />
 
         <ImageView
             android:id="@+id/igiftLifeLogo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/igiftlifelogo"
+            android:layout_below="@id/igiftlife_intro"
             android:layout_gravity="top"
-            android:scaleY="1"
             android:layout_marginTop="20dp"
             android:scaleType="fitCenter"
-            android:layout_below="@id/igiftlife_intro"/>
+            android:scaleY="1"
+            android:src="@drawable/igiftlifelogo" />
 
 
         <Button
             android:id="@+id/playAgainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PLAY AGAIN!"
-            android:textSize="50sp"
             android:layout_below="@id/igiftLifeLogo"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:background="@drawable/ripple"
             android:padding="10dp"
-            android:textStyle="bold|italic"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
+            android:text="PLAY AGAIN!"
             android:textColor="@color/igiftLifeButtonColor"
-            />
+            android:textSize="50sp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/visitIgiftLifeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Do you want to pledge a card? Click Here to visit IgiftLife.com"
-            android:textSize="15sp"
             android:layout_below="@id/playAgainButton"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/ripple_igiftlife_button"
             android:padding="5dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:textColor="@color/colorWhite"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            />
+            android:text="Do you want to pledge a card? Click Here to visit IgiftLife.com"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

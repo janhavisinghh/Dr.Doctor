@@ -16,7 +16,9 @@
                 android:startColor="@color/correctAnswer"
                 android:type="linear" />
             <corners android:radius="5dp" />
-            <stroke android:width="5px" android:color="@color/dark_green" />
+            <stroke
+                android:width="5px"
+                android:color="@color/dark_green" />
         </shape>
     </item>
 </ripple>
