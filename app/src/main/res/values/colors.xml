@@ -5,8 +5,8 @@
     <color name="colorAccent">#72035c</color>
     <color name="colorAccentLight">#cfd8dc</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="correctAnswer">#00c853</color>
-    <color name="wrongAnswer">#f44336</color>
+    <color name="correctAnswer">#128b03</color>
+    <color name="wrongAnswer">#be2e35</color>
     <color name="nextButtonColor">#ffea00</color>
 
     <color name="black_overlay">#66000000</color>
@@ -24,7 +24,7 @@
     <color name="text_shadow_white">#FFFFFF</color>
 
     <color name="life_ended">#ff6e40</color>
-    <color name="igiftLifeButtonColor">#01579b</color>
+    <color name="igiftLifeButtonColor">#039be5</color>
     <color name="tryAgainButtonColor">#ef5350</color>
     <color name="black">#000000</color>
     <color name="start_button">#1de9b6</color>
@@ -37,5 +37,6 @@
     <color name="dark_green_overlay">#33691e</color>
     <color name="speech_bubble_agent">#c321f2</color>
     <color name="grey_light">#424242</color>
+    <color name="yellow_card">#ffc400</color>
 
 </resources>

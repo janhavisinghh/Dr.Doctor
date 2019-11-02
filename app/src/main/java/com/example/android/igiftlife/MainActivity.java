@@ -44,39 +44,17 @@ public class MainActivity extends AppCompatActivity {
         characterIntroKiara = new ArrayList<>();
         characterIntroRaj = new ArrayList<>();
 
-        characterIntroKiara.add("Hey there! I am Kiara.");
-        characterIntroKiara.add("I am 14 years old.");
+        characterIntroKiara.add("Hey there! I am Kiara. I am 14 years old.");
         characterIntroKiara.add("Everybody teases me by calling me Tiara but I think I have a nice name.");
-        characterIntroKiara.add("I like to dance a lot. I keep dancing always.");
-        characterIntroKiara.add("Mumma says I should take rest also but");
-        characterIntroKiara.add("I want to become the best dancer when I grow up.");
-        characterIntroKiara.add("I also like to run a lot.");
-        characterIntroKiara.add("My teacher says I am the fastest in my class.");
-        characterIntroKiara.add("Beating boys is fun,");
-        characterIntroKiara.add("they get very angry when they loose from a girl.");
-        characterIntroKiara.add("I like pink color a lot.");
-        characterIntroKiara.add("I have a pink bag and shoes, my favorite.");
-        characterIntroKiara.add("Its now 7am in the morning");
-        characterIntroKiara.add("and it is time for me to go to school.");
-        characterIntroKiara.add("And my mom is calling me.");
-        characterIntroKiara.add("So, yeah. See you!");
+        characterIntroKiara.add("I like to dance a lot. I keep dancing always. I also like running.");
+        characterIntroKiara.add("Its now 7am in the morning and it is time for me to go to school.");
+        characterIntroKiara.add("And my mom is calling me. So, yeah. See you!");
 
-        characterIntroRaj.add("Hey there! I am Raj.");
-        characterIntroRaj.add("I am 14 years old.");
+        characterIntroRaj.add("Hey there! I am Raj. I am 14 years old.");
         characterIntroRaj.add("I like to swim and play basketball.");
-        characterIntroRaj.add("I am very tall in my class");
-        characterIntroRaj.add("and everybody loves to have me in their team. ");
-        characterIntroRaj.add("I also like to play Table tennis.");
-        characterIntroRaj.add("My mumma makes me eat lots of veggies,");
-        characterIntroRaj.add("but I do not like them.");
-        characterIntroRaj.add("She says they are important ");
-        characterIntroRaj.add("since I like to play so much and I am growing up.");
-        characterIntroRaj.add("My favorite color is black");
-        characterIntroRaj.add("and I always like to wear it.");
-        characterIntroRaj.add("Its now 7am in the morning");
-        characterIntroRaj.add("and it is time for me to go to school.");
-        characterIntroRaj.add("And my mom is calling me.");
-        characterIntroRaj.add("So, yeah. See you!");
+        characterIntroRaj.add("My mumma makes me eat lots of veggies, but I do not like them.");
+        characterIntroRaj.add("Its now 7am in the morning and it is time for me to go to school.");
+        characterIntroRaj.add("And my mom is calling me. So, yeah. See you!");
 
 
         girlBoyCharLinearLayout.setVisibility(View.GONE);

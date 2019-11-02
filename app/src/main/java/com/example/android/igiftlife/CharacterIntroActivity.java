@@ -49,14 +49,15 @@ public class CharacterIntroActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                 } else {
-//                    characterIntroTextView.setText(characterIntro.get(count));
                     typingAnimation(characterIntroTextView, characterIntro.get(count), 1);
                     count++;
                 }
             }
         });
-
     }
+
+    private Handler textAnimationHandler = new Handler();
+    private Runnable textAnimationRunnable;
 
     private void typingAnimation(final TextView view, final String text, final int length) {
         int delay = 100;
@@ -67,12 +68,16 @@ public class CharacterIntroActivity extends AppCompatActivity {
         if (length == text.length())
             return;
         else {
-            new Handler().postDelayed(new Runnable() {
+            if (textAnimationRunnable != null) {
+                textAnimationHandler.removeCallbacks(textAnimationRunnable);
+            }
+            textAnimationRunnable = new Runnable() {
                 @Override
                 public void run() {
                     typingAnimation(view, text, length + 1);
                 }
-            }, delay);
+            };
+            textAnimationHandler.postDelayed(textAnimationRunnable, delay);
         }
     }
 }

@@ -39,17 +39,54 @@
             android:paddingBottom="60dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            tools:text="Hey I am Kiara!" />
+            tools:text="Hey I am Kiara!"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <Button
+            android:id="@+id/yes_tv"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/speech_bubble_answer"
+            android:fontFamily="casual"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_below="@+id/character_intro_textview"
+            android:text="YES"
+            android:textSize="25sp"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/no_tv"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/speech_bubble_answer"
+            android:fontFamily="casual"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_below="@+id/yes_tv"
+            android:text="NO"
+            android:textSize="25sp"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="Touch Anywhere on the Screen to Continue"
             android:textAlignment="center"
             android:textColor="@color/grey_font"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:visibility="visible"/>
 
     </RelativeLayout>
 </FrameLayout>
