@@ -31,7 +31,6 @@ public class StoryActivity extends AppCompatActivity {
     private Button option1;
     private Button option2;
     private Button option3;
-    private Button option4;
     private Vibrator vibe;
     private Handler handler;
     private int isABoyCharacter;
@@ -74,7 +73,6 @@ public class StoryActivity extends AppCompatActivity {
         option1 = findViewById(R.id.mcq_option_1);
         option2 = findViewById(R.id.mcq_option_2);
         option3 = findViewById(R.id.mcq_option_3);
-        option4 = findViewById(R.id.mcq_option_4);
         storyImageView = findViewById(R.id.comicStripIv);
         scoreTextView = findViewById(R.id.scoreTextView);
         lifeTextView = findViewById(R.id.lifeTextView);
@@ -97,7 +95,7 @@ public class StoryActivity extends AppCompatActivity {
             girlStoryList.add(new Story(R.drawable.hospitalgirl1, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl2, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family.", "4. Not Sure"}, 1)));
+            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family."}, 1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl5, true, new Options("Should it not be Kabeer’s choice if he wants to donate his organs or not? But now who will decide if Kabeer’s organs can be donated?", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
             girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
@@ -248,13 +246,10 @@ public class StoryActivity extends AppCompatActivity {
         option1.setBackground(getResources().getDrawable(R.drawable.ripple));
         option2.setBackground(getResources().getDrawable(R.drawable.ripple));
         option3.setBackground(getResources().getDrawable(R.drawable.ripple));
-        option4.setBackground(getResources().getDrawable(R.drawable.ripple));
-
 
         option1.setEnabled(true);
         option2.setEnabled(true);
         option3.setEnabled(true);
-        option4.setEnabled(true);
 
         optionsLinearLayout.setVisibility(View.VISIBLE);
 
@@ -263,7 +258,6 @@ public class StoryActivity extends AppCompatActivity {
         option1.setText(options.options_text[0]);
         option2.setText(options.options_text[1]);
         option3.setText(options.options_text[2]);
-//        option4.setText(options.options_text[3]);
 
 
         option1.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +266,6 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
-                option4.setEnabled(false);
 
                 if (correct_answer != 1) {
                     life = life - 1;
@@ -280,10 +273,8 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 2)
                         option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if (correct_answer == 3)
-                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
+                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                 } else {
                     option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
@@ -314,7 +305,6 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
-                option4.setEnabled(false);
 
                 if (correct_answer != 2) {
                     life = life - 1;
@@ -322,10 +312,8 @@ public class StoryActivity extends AppCompatActivity {
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if (correct_answer == 3)
-                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
+                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
                 } else {
                     option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
@@ -359,65 +347,17 @@ public class StoryActivity extends AppCompatActivity {
                 option1.setEnabled(false);
                 option2.setEnabled(false);
                 option3.setEnabled(false);
-                option4.setEnabled(false);
                 if (correct_answer != 3) {
                     life = life - 1;
                     option3.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if (correct_answer == 2)
-                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
-                        option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-
+                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
 
                 } else {
                     option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    score = score + 10;
-                    setScore();
-                }
-
-                if (life == 0)
-                    lifeEnds();
-                else {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            setLife();
-                            optionsLinearLayout.setVisibility(View.GONE);
-
-                            nextButton.setVisibility(View.VISIBLE);
-                            count++;
-                            showComicStrip();
-
-                        }
-                    }, 4000);
-                }
-
-            }
-        });
-        option4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                option1.setEnabled(false);
-                option2.setEnabled(false);
-                option3.setEnabled(false);
-                option4.setEnabled(false);
-                if (correct_answer != 4) {
-                    life = life - 1;
-                    option4.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
-                    vibe.vibrate(300);
-                    if (correct_answer == 1)
-                        option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else if (correct_answer == 2)
-                        option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-                    else
-                        option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
-
-
-                } else {
-                    option4.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
                     setScore();
                 }
