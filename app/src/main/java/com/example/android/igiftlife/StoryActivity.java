@@ -53,8 +53,8 @@ public class StoryActivity extends AppCompatActivity {
     private ArrayList<String> endIntro;
     private String IS_LAST_SCREEN = "IS_LAST_SCREEN";
     private String CHARACTER_INTRO_ARRAY = "CHARACTER_INTRO_ARRAY";
-    private int isLastScreen;
-
+    private int isSecondStoryLine = 0;
+    private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
 
 
     @Override
@@ -88,104 +88,239 @@ public class StoryActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             isABoyCharacter = getIntent().getIntExtra("IS_A_BOY_CHAR", 0);
+            isSecondStoryLine = getIntent().getIntExtra(IS_SECOND_STORY_LINE, 0);
 
-            girlStoryList.add(new Story(R.drawable.homegirl1, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.homegirl2, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.homegirl3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl1, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl2, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family."}, 1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl5, true, new Options("Should it not be Kabeer’s choice if he wants to donate his organs or not? But now who will decide if Kabeer’s organs can be donated?", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl8, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz1, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz2, false, new Options("", new String[]{}, -1)));
+            if(isSecondStoryLine == 0) {
+                girlStoryList.add(new Story(R.drawable.homegirl1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.homegirl2, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.homegirl3, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalscene2, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalscene3, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl4, true, new Options("", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family."}, 1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl5, true, new Options("", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl6, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl7, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl8, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl9, true, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl10, true, new Options("", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz2, false, new Options("", new String[]{}, -1)));
 
-            girlStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
 
-            girlStoryList.add(new Story(R.drawable.hospitalgirl11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl12, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
-            girlStoryList.add(new Story(R.drawable.girlquiz4, true, new Options("Is there a priority list for rich and famous people to get organs?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
-            girlStoryList.add(new Story(R.drawable.girlquiz5, true, new Options("After a person’s death, Can that person’s family refuse to donate his/her organs in spite of the person having a donor card?\n", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl11, false, new Options("", new String[]{"1. OKAY!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl12, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz3, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz4, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz5, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
 
-            girlStoryList.add(new Story(R.drawable.hospitalgirl13, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl14, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl15, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl16, true, new Options("What organs can he successfully donate after a heart failure?", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
-            girlStoryList.add(new Story(R.drawable.girlquiz6, true, new Options("Do you think Raj’s uncle was right?", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
-
-
-            girlStoryList.add(new Story(R.drawable.hospitalgirl17, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl18, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz7, true, new Options("If I have a pledge card and I am in the hospital, will the doctor try to save me?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
-            girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("Can I donate organs if I’m sick?", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
-
-            girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("How long can organs and tissue survive once harvested till transplantation if preserved?", new String[]{"1. Match the following!"}, 1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl21, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl22, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl23, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl24, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl25, false, new Options("", new String[]{}, -1)));
-            girlStoryList.add(new Story(R.drawable.hospitalgirl26, false, new Options("", new String[]{}, -1)));
-
-            boyStoryList.add(new Story(R.drawable.homeboy1, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.homeboy2, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.homeboy3, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy1, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy2, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy3, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy4, true, new Options("Can Organs be donated only to family members?", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3. Not Sure"}, 1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy5, true, new Options("Should it not be Kabeer’s choice if he wants to donate his organs or not? But now who will decide if Kabeer’s organs can be donated?", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy6, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy7, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy8, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy9, true, new Options("What organs can he successfully donate after being brain dead?", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy10, true, new Options("What is the minimum age to register as an organ donor?", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz1, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz2, false, new Options("", new String[]{}, -1)));
-
-            boyStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
-
-            boyStoryList.add(new Story(R.drawable.hospitalboy11, false, new Options("Let's play a quiz on Organ Donation?", new String[]{"1. OKAY!"}, 1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy12, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz3, true, new Options("Does donating organs cost money?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
-            boyStoryList.add(new Story(R.drawable.boyquiz4, true, new Options("Is there a priority list for rich and famous people to get organs?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
-            boyStoryList.add(new Story(R.drawable.boyquiz5, true, new Options("After a person’s death, Can that person’s family refuse to donate his/her organs in spite of the person having a donor card?\n", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
-
-            boyStoryList.add(new Story(R.drawable.hospitalboy13, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy14, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy15, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy16, true, new Options("What organs can he successfully donate after a heart failure?", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
-            boyStoryList.add(new Story(R.drawable.boyquiz6, true, new Options("Do you think Raj’s uncle was right?", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl13, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl14, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl15, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl16, true, new Options("", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz6, true, new Options("", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
 
 
-            boyStoryList.add(new Story(R.drawable.hospitalboy17, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy18, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz7, true, new Options("If I have a pledge card and I am in the hospital, will the doctor try to save me?", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
-            boyStoryList.add(new Story(R.drawable.boyquiz8, true, new Options("Can I donate organs if I’m sick?", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl17, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl18, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz7, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl2, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl3, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl4, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl6, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+
+                //timeframes of organ donation
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl21, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl22, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl23, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl24, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl25, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl26, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.homeboy1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.homeboy2, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.homeboy3, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalscene2, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalscene3, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy4, true, new Options("", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3. Not Sure"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy5, true, new Options("", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy6, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy7, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy8, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy9, true, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy10, true, new Options("", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz2, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy11, false, new Options("", new String[]{"1. OKAY!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy12, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz3, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz4, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz5, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy13, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy14, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy15, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy16, true, new Options("", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz6, true, new Options("", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
 
 
-            boyStoryList.add(new Story(R.drawable.hospitalboy19, false, new Options("How long can organs and tissue survive once harvested till transplantation if preserved?", new String[]{"1. Match the following!"}, 1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy20, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy21, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy22, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy23, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy24, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy25, false, new Options("", new String[]{}, -1)));
-            boyStoryList.add(new Story(R.drawable.hospitalboy26, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy17, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy18, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz7, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
 
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.timeframegirl3, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                boyStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                boyStoryList.add(new Story(R.drawable.timeframegirl6, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy20, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy21, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy22, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy23, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy24, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy25, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy26, false, new Options("", new String[]{}, -1)));
+            }
+            else{
+                girlStoryList.add(new Story(R.drawable.scenariogirl1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl2, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl3, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl4, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl5, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl6, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl7, false, new Options("", new String[]{"1. No, Organs are donated to patients on the waiting list. And can be donated to family members only if it is living donation.", "2.Yes, organs can be donated only within the family.", "3.No, organs can not be donated within the family."}, 1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl8, false, new Options("", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl9, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl10, true, new Options("", new String[]{"1. One of two kidneys, Part of Skin and Part of liver ", "2. Both Kidneys, Pancreas and Eyes", "3. Liver, Heart and Part of Skin"}, 1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl11, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl12, false, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+                girlStoryList.add(new Story(R.drawable.scenariogirl13, false, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl10, true, new Options("", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz2, false, new Options("", new String[]{}, -1)));
+
+                girlStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl11, false, new Options("", new String[]{"1. OKAY!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl12, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz3, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz4, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz5, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl13, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl14, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl15, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl16, true, new Options("", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
+                girlStoryList.add(new Story(R.drawable.girlquiz6, true, new Options("", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
+
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl17, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl18, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz7, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+                girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl2, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl3, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl4, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                girlStoryList.add(new Story(R.drawable.timeframegirl6, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+
+                //timeframes of organ donation
+
+                girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl21, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl22, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl23, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl24, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl25, false, new Options("", new String[]{}, -1)));
+                girlStoryList.add(new Story(R.drawable.hospitalgirl26, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.scenarioboy1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy2, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy3, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy4, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy5, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy6, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy7, false, new Options("", new String[]{""}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy8, false, new Options("", new String[]{"1. Doctor", "2. Family", "3. He can not donate organs now."}, 2)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy9, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy10, true, new Options("", new String[]{"1. One of two kidneys, Part of Skin and Part of liver ", "2. Both Kidneys, Pancreas and Eyes", "3. Liver, Heart and Part of Skin"}, 1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy11, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy12, false, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+                boyStoryList.add(new Story(R.drawable.scenarioboy13, false, new Options("", new String[]{"1. Heart, lungs, liver, kidneys, cornea , pancreases, part of skin and bones", "2. Cornea, part of skin and bones", "3. Kidney, part of liver and part of skin"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy10, true, new Options("", new String[]{"1. 18", "2. 25", "3. No age bar!!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz2, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.pledge_steps_1, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_2, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_3, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.pledge_steps_4, false, new Options("", new String[]{}, -1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy11, false, new Options("", new String[]{"1. OKAY!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy12, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz3, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz4, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz5, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy13, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy14, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy15, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy16, true, new Options("", new String[]{"1. Kidneys, Lungs and Brain", "2. Cornea, Bones, and Part of Skin", "3. Pancreas, Liver, and Bones"}, 2)));
+                boyStoryList.add(new Story(R.drawable.boyquiz6, true, new Options("", new String[]{"1. Yes, body gets disfigured after organ donation\n", "2. No, it is a myth", "3. Not Sure"}, 2)));
+
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy17, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy18, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz7, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
+                boyStoryList.add(new Story(R.drawable.boyquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
+
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                boyStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.timeframegirl3, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                boyStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                boyStoryList.add(new Story(R.drawable.timeframegirl6, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+
+                boyStoryList.add(new Story(R.drawable.hospitalboy20, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy21, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy22, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy23, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy24, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy25, false, new Options("", new String[]{}, -1)));
+                boyStoryList.add(new Story(R.drawable.hospitalboy26, false, new Options("", new String[]{}, -1)));
+
+            }
             endIntro.add("So what do you think, Did I make the right decision by choosing to save lives through organ donation?");
 
             storyList = null;

@@ -35,7 +35,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
     private String pledgeFormUrl = "https://igiftlife.com/register-for-organ-donation/";
     private TextView igiftlifeIntro;
     private Button visitIgiftLifeBtn;
-
+    private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,11 +120,34 @@ public class CharacterIntroActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (characterIntro.size() == count) {
-                        Intent myIntent = new Intent(CharacterIntroActivity.this, StoryActivity.class);
-                        myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
-                        CharacterIntroActivity.this.startActivity(myIntent);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        finish();
+                        yes_tv.setVisibility(View.VISIBLE);
+                        no_tv.setVisibility(View.VISIBLE);
+                        touchAnywhereTv.setVisibility(View.GONE);
+                        typingAnimation(characterIntroTextView, "I don't feel like going to school though. Should I go or not?", 1);
+                        yes_tv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent myIntent = new Intent(CharacterIntroActivity.this, StoryActivity.class);
+                                myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
+                                myIntent.putExtra(IS_SECOND_STORY_LINE, 0);
+                                CharacterIntroActivity.this.startActivity(myIntent);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                finish();
+                            }
+                        });
+
+                        no_tv.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent myIntent = new Intent(CharacterIntroActivity.this, StoryActivity.class);
+                                myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
+                                myIntent.putExtra(IS_SECOND_STORY_LINE, 1);
+                                CharacterIntroActivity.this.startActivity(myIntent);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                finish();
+                            }
+                        });
+
                     } else {
                         typingAnimation(characterIntroTextView, characterIntro.get(count), 1);
                         count++;
