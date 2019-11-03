@@ -50,11 +50,13 @@ public class StoryActivity extends AppCompatActivity {
     private Button visitIgiftLifeButton;
     private LinearLayout menuItemLinearLayout;
     private String igiftLifeUrl = "https://igiftlife.com/";
-    private String pledgeFormUrl = "https://igiftlife.com/register-for-organ-donation/";
     private LinearLayout optionsLinearLayout;
-    private RelativeLayout gameEndedRelativeLayout;
-    private Button gameEndedPlayAgainButton;
-    private Button gameEndedVisitIgiftLifeButton;
+    private ArrayList<String> endIntro;
+    private String IS_LAST_SCREEN = "IS_LAST_SCREEN";
+    private String CHARACTER_INTRO_ARRAY = "CHARACTER_INTRO_ARRAY";
+    private int isLastScreen;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class StoryActivity extends AppCompatActivity {
         girlStoryList = new ArrayList<>();
         boyStoryList = new ArrayList<>();
         storyList = new ArrayList<>();
+        endIntro = new ArrayList<>();
 
         nextButton = findViewById(R.id.nextStoryButton);
         option1 = findViewById(R.id.mcq_option_1);
@@ -82,9 +85,6 @@ public class StoryActivity extends AppCompatActivity {
         visitIgiftLifeButton = findViewById(R.id.visitIgiftLifeButton);
         menuItemLinearLayout = findViewById(R.id.menuItemLinearLayout);
         optionsLinearLayout = findViewById(R.id.options_layout);
-        gameEndedRelativeLayout = findViewById(R.id.gameEndedRelativeLayout);
-        gameEndedPlayAgainButton = findViewById(R.id.playAgainButton);
-        gameEndedVisitIgiftLifeButton = findViewById(R.id.visitIgiftLifeBtn);
 
         handler = new Handler();
 
@@ -188,6 +188,8 @@ public class StoryActivity extends AppCompatActivity {
             boyStoryList.add(new Story(R.drawable.hospitalboy25, false, new Options("", new String[]{}, -1)));
             boyStoryList.add(new Story(R.drawable.hospitalboy26, false, new Options("", new String[]{}, -1)));
 
+            endIntro.add("So what do you think, Did I make the right decision by choosing to save lives through organ donation?");
+
             storyList = null;
 
             if (isABoyCharacter == 0)
@@ -204,6 +206,8 @@ public class StoryActivity extends AppCompatActivity {
             isABoyCharacter = savedInstanceState.getInt(IS_A_BOY_CHAR);
             score = savedInstanceState.getInt(SCORE);
             life = savedInstanceState.getInt(LIFE_POINTS);
+            endIntro = savedInstanceState.getStringArrayList(CHARACTER_INTRO_ARRAY);
+
         }
 
         showComicStrip();
@@ -447,6 +451,7 @@ public class StoryActivity extends AppCompatActivity {
         currentState.putSerializable(STORY_LIST_COUNT, count);
         currentState.putSerializable(SCORE, score);
         currentState.putSerializable(LIFE_POINTS, life);
+        currentState.putSerializable(CHARACTER_INTRO_ARRAY, endIntro);
     }
 
     private void setScore() {
@@ -469,26 +474,13 @@ public class StoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 scoreCardFrameLayout.setVisibility(View.GONE);
-                gameEndedRelativeLayout.setVisibility(View.VISIBLE);
-
-                gameEndedPlayAgainButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent myIntent = new Intent(StoryActivity.this, MainActivity.class);
-                        StoryActivity.this.startActivity(myIntent);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        finish();
-                    }
-                });
-
-                gameEndedVisitIgiftLifeButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent i = new Intent(Intent.ACTION_VIEW);
-                        i.setData(Uri.parse(pledgeFormUrl));
-                        startActivity(i);
-                    }
-                });
+                Intent myIntent = new Intent(StoryActivity.this, CharacterIntroActivity.class);
+                myIntent.putExtra(CHARACTER_INTRO_ARRAY, endIntro);
+                myIntent.putExtra(IS_LAST_SCREEN, 1);
+                myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
+                StoryActivity.this.startActivity(myIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
             }
         });
 
@@ -522,14 +514,6 @@ public class StoryActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        int count1 = count;
-        int score1 = score;
-        int life1 = life;
     }
 
 }

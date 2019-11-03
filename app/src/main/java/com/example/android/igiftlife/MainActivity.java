@@ -84,18 +84,13 @@ public class MainActivity extends AppCompatActivity {
                 areYouAGirlOrBoy.setVisibility(View.GONE);
                 girlBoyCharText.setVisibility(View.GONE);
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent myIntent = new Intent(MainActivity.this, CharacterIntroActivity.class);
-                        isABoyCharacter = 0; //1 is for boy charater
-                        myIntent.putExtra("IS_A_BOY_CHAR", isABoyCharacter);
-                        myIntent.putExtra(CHARACTER_INTRO_ARRAY, characterIntroKiara);
-                        MainActivity.this.startActivity(myIntent);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        finish();
-                    }
-                }, 1000);
+                Intent myIntent = new Intent(MainActivity.this, CharacterIntroActivity.class);
+                isABoyCharacter = 0; //1 is for boy charater
+                myIntent.putExtra("IS_A_BOY_CHAR", isABoyCharacter);
+                myIntent.putExtra(CHARACTER_INTRO_ARRAY, characterIntroKiara);
+                MainActivity.this.startActivity(myIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
 
             }
         });
@@ -107,18 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 areYouAGirlOrBoy.setVisibility(View.GONE);
                 girlBoyCharText.setVisibility(View.GONE);
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent myIntent = new Intent(MainActivity.this, CharacterIntroActivity.class);
-                        isABoyCharacter = 1; //1 is for boy charater
-                        myIntent.putExtra("IS_A_BOY_CHAR", isABoyCharacter);
-                        myIntent.putExtra(CHARACTER_INTRO_ARRAY, characterIntroRaj);
-                        MainActivity.this.startActivity(myIntent);
-                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                        finish();
-                    }
-                }, 1000);
+                Intent myIntent = new Intent(MainActivity.this, CharacterIntroActivity.class);
+                isABoyCharacter = 1; //1 is for boy charater
+                myIntent.putExtra("IS_A_BOY_CHAR", isABoyCharacter);
+                myIntent.putExtra(CHARACTER_INTRO_ARRAY, characterIntroRaj);
+                MainActivity.this.startActivity(myIntent);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                finish();
+
             }
         });
     }

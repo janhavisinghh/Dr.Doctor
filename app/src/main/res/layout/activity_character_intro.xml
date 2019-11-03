@@ -8,8 +8,10 @@
     tools:context=".CharacterIntroActivity">
 
     <RelativeLayout
+        android:id="@+id/character_intro_relative_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/character_intro_image_view"
@@ -78,6 +80,7 @@
             android:visibility="gone"/>
 
         <TextView
+            android:id="@+id/touchAnywhereTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -89,4 +92,98 @@
             android:visibility="visible"/>
 
     </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+    <LinearLayout
+        android:id="@+id/gameEndedLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark_green"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/igiftlife_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:shadowColor="@color/grey_font"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Dr. Hope is a small initiative by IgiftLife Foundation to spread awareness on Organ Donation."
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="italic|bold"
+            android:layout_weight="2.6"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <ImageView
+            android:id="@+id/igiftLifeLogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:scaleType="fitCenter"
+            android:scaleY="1"
+            android:src="@drawable/igiftlifelogo"
+            android:layout_weight="5"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            />
+
+        <Button
+            android:id="@+id/visitIgiftLifeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/tryagain_btn_ripple"
+            android:padding="10dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="3"
+            android:text="Pledge today"
+            android:textColor="@color/colorWhite"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:layout_weight="2"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:id="@+id/playAgainButton"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:drawableTop="@drawable/replay_btn_icon"
+            android:padding="10dp"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Play AGAIN"
+            android:layout_weight="0.4"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            />
+
+    </LinearLayout>
+    </LinearLayout>
+
 </FrameLayout>
