@@ -90,7 +90,7 @@ public class StoryActivity extends AppCompatActivity {
             isABoyCharacter = getIntent().getIntExtra("IS_A_BOY_CHAR", 0);
             isSecondStoryLine = getIntent().getIntExtra(IS_SECOND_STORY_LINE, 0);
 
-            if(isSecondStoryLine == 0) {
+            if (isSecondStoryLine == 0) {
                 girlStoryList.add(new Story(R.drawable.homegirl1, false, new Options("", new String[]{}, -1)));
                 girlStoryList.add(new Story(R.drawable.homegirl2, false, new Options("", new String[]{}, -1)));
                 girlStoryList.add(new Story(R.drawable.homegirl3, false, new Options("", new String[]{}, -1)));

@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -36,6 +35,8 @@ public class CharacterIntroActivity extends AppCompatActivity {
     private TextView igiftlifeIntro;
     private Button visitIgiftLifeBtn;
     private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
+    private Handler textAnimationHandler = new Handler();
+    private Runnable textAnimationRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +58,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
         gameEndedPlayAgainButton = findViewById(R.id.playAgainButton);
         gameEndedVisitIgiftLifeButton = findViewById(R.id.visitIgiftLifeBtn);
         igiftlifeIntro = findViewById(R.id.igiftlife_intro);
-        visitIgiftLifeBtn =  findViewById(R.id.visitIgiftLifeBtn);
-
+        visitIgiftLifeBtn = findViewById(R.id.visitIgiftLifeBtn);
 
 
         if (isABoyCharacter == 0)
@@ -66,7 +66,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
         else
             characterIntroImageView.setImageDrawable(getDrawable(R.drawable.boy_avatar_transparent_bg));
 
-        if(isLastScreen == 1){
+        if (isLastScreen == 1) {
             yes_tv.setVisibility(View.VISIBLE);
             no_tv.setVisibility(View.VISIBLE);
             touchAnywhereTv.setVisibility(View.GONE);
@@ -111,8 +111,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
 
                 }
             });
-        }
-        else {
+        } else {
             yes_tv.setVisibility(View.GONE);
             no_tv.setVisibility(View.GONE);
             touchAnywhereTv.setVisibility(View.VISIBLE);
@@ -156,9 +155,6 @@ public class CharacterIntroActivity extends AppCompatActivity {
             });
         }
     }
-
-    private Handler textAnimationHandler = new Handler();
-    private Runnable textAnimationRunnable;
 
     private void typingAnimation(final TextView view, final String text, final int length) {
         int delay = 100;

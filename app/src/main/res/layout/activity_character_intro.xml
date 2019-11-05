@@ -34,50 +34,50 @@
             android:autoSizeStepGranularity="2sp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/speech_bubble"
+            android:clickable="true"
+            android:focusable="true"
             android:fontFamily="casual"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:paddingStart="30dp"
             android:paddingTop="10dp"
             android:paddingEnd="30dp"
             android:paddingBottom="60dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            tools:text="Hey I am Kiara!"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"/>
+            tools:text="Hey I am Kiara!" />
 
         <Button
             android:id="@+id/yes_tv"
             android:layout_width="100dp"
             android:layout_height="70dp"
+            android:layout_below="@+id/character_intro_textview"
             android:layout_alignParentEnd="true"
             android:layout_margin="20dp"
             android:background="@drawable/speech_bubble_answer"
-            android:fontFamily="casual"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_below="@+id/character_intro_textview"
-            android:text="YES"
-            android:textSize="25sp"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:visibility="gone"/>
+            android:fontFamily="casual"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="YES"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/no_tv"
             android:layout_width="100dp"
             android:layout_height="70dp"
+            android:layout_below="@+id/yes_tv"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="20dp"
             android:background="@drawable/speech_bubble_answer"
             android:fontFamily="casual"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_below="@+id/yes_tv"
             android:text="NO"
+            android:textColor="@color/black"
             android:textSize="25sp"
-            android:visibility="gone"/>
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/touchAnywhereTv"
@@ -89,101 +89,98 @@
             android:textAlignment="center"
             android:textColor="@color/grey_font"
             android:textSize="15sp"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-    <LinearLayout
-        android:id="@+id/gameEndedLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/dark_green"
-        android:visibility="gone"
-        android:orientation="vertical"
-        android:weightSum="10"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
-        >
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/igiftlife_intro"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
-            android:layout_marginTop="20dp"
-            android:shadowColor="@color/grey_font"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="2"
-            android:text="Dr. Hope is a small initiative by IgiftLife Foundation to spread awareness on Organ Donation."
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="italic|bold"
-            android:layout_weight="2.6"
-            android:layout_gravity="center_horizontal"
-            />
-
-        <ImageView
-            android:id="@+id/igiftLifeLogo"
+        <LinearLayout
+            android:id="@+id/gameEndedLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="top"
-            android:scaleType="fitCenter"
-            android:scaleY="1"
-            android:src="@drawable/igiftlifelogo"
-            android:layout_weight="5"
-            android:layout_marginRight="25dp"
-            android:layout_marginLeft="25dp"
-            />
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:background="@color/dark_green"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:weightSum="10">
 
-        <Button
-            android:id="@+id/visitIgiftLifeBtn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="40dp"
-            android:background="@drawable/tryagain_btn_ripple"
-            android:padding="10dp"
-            android:shadowColor="@color/text_shadow"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowRadius="3"
-            android:text="Pledge today"
-            android:textColor="@color/colorWhite"
-            android:textSize="40sp"
-            android:textStyle="bold|italic"
-            android:layout_weight="2"
-            android:layout_gravity="center_horizontal"
-            />
+            <TextView
+                android:id="@+id/igiftlife_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_weight="2.6"
+                android:gravity="center"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:shadowColor="@color/grey_font"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="Dr. Hope is a small initiative by IgiftLife Foundation to spread awareness on Organ Donation."
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="italic|bold" />
 
-        <TextView
-            android:id="@+id/playAgainButton"
-            android:layout_width="120dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
-            android:drawableTop="@drawable/replay_btn_icon"
-            android:padding="10dp"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="PLAY AGAIN"
-            android:layout_weight="0.4"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="15dp"
-            android:textAlignment="center"
-            />
+            <ImageView
+                android:id="@+id/igiftLifeLogo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="top"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_weight="5"
+                android:scaleType="fitCenter"
+                android:scaleY="1"
+                android:src="@drawable/igiftlifelogo" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/visitIgiftLifeBtn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="40dp"
+                android:layout_weight="2"
+                android:background="@drawable/tryagain_btn_ripple"
+                android:padding="10dp"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="3"
+                android:text="Pledge today"
+                android:textColor="@color/colorWhite"
+                android:textSize="40sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/playAgainButton"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="0.4"
+                android:drawableTop="@drawable/replay_btn_icon"
+                android:padding="10dp"
+                android:text="PLAY AGAIN"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>
