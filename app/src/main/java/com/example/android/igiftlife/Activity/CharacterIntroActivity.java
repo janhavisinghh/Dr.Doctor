@@ -72,6 +72,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
             yes_tv.setVisibility(View.VISIBLE);
             no_tv.setVisibility(View.VISIBLE);
             touchAnywhereTv.setVisibility(View.GONE);
+            characterIntroFrameLayout.setEnabled(false);
             typingAnimation(characterIntroTextView, characterIntro.get(0), 1);
             no_tv.setEnabled(true);
             yes_tv.setEnabled(true);
@@ -124,6 +125,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
             yes_tv.setVisibility(View.GONE);
             no_tv.setVisibility(View.GONE);
             touchAnywhereTv.setVisibility(View.VISIBLE);
+            characterIntroFrameLayout.setEnabled(true);
             characterIntroFrameLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -131,6 +133,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                         yes_tv.setVisibility(View.VISIBLE);
                         no_tv.setVisibility(View.VISIBLE);
                         touchAnywhereTv.setVisibility(View.GONE);
+                        characterIntroFrameLayout.setEnabled(false);
                         typingAnimation(characterIntroTextView, "I don't feel like going to school though. Should I go or not?", 1);
                         yes_tv.setEnabled(true);
                         no_tv.setEnabled(true);
@@ -178,13 +181,13 @@ public class CharacterIntroActivity extends AppCompatActivity {
             if (textAnimationRunnable != null) {
                 textAnimationHandler.removeCallbacks(textAnimationRunnable);
             }
-            textAnimationRunnable = new Runnable() {
-                @Override
-                public void run() {
-                    typingAnimation(view, text, length + 1);
-                }
-            };
-            textAnimationHandler.postDelayed(textAnimationRunnable, delay);
+                textAnimationRunnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        typingAnimation(view, text, length + 1);
+                    }
+                };
+                textAnimationHandler.postDelayed(textAnimationRunnable, delay);
         }
     }
 }
