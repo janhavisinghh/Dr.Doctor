@@ -1,6 +1,7 @@
 package com.example.android.igiftlife.Activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> characterIntroKiara;
     private ArrayList<String> characterIntroRaj;
     private String CHARACTER_INTRO_ARRAY = "CHARACTER_INTRO_ARRAY";
-
+    private MediaPlayer click_effect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         girlBoyCharText = findViewById(R.id.girlBoyCharText);
         characterIntroKiara = new ArrayList<>();
         characterIntroRaj = new ArrayList<>();
+        click_effect = MediaPlayer.create(MainActivity.this,R.raw.next_button_sound);
 
         characterIntroKiara.add("Hey there! I am Kiara. I am 14 years old.");
         characterIntroKiara.add("Everybody teases me by calling me Tiara but I think I have a nice name.");
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         playButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+                click_effect.start();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         girlCharacterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                click_effect.start();
                 boyCharacterButton.setVisibility(View.INVISIBLE);
                 areYouAGirlOrBoy.setVisibility(View.GONE);
                 girlBoyCharText.setVisibility(View.GONE);
@@ -102,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         boyCharacterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                click_effect.start();
                 girlCharacterButton.setVisibility(View.INVISIBLE);
                 areYouAGirlOrBoy.setVisibility(View.GONE);
                 girlBoyCharText.setVisibility(View.GONE);

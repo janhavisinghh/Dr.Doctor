@@ -3,6 +3,7 @@ package com.example.android.igiftlife.Activity;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -60,6 +61,13 @@ public class StoryActivity extends AppCompatActivity {
     private int isSecondStoryLine = 0;
     private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
     private String[] stringArr;
+    private MediaPlayer next_button_sound;
+    private MediaPlayer game_over_sound;
+    private MediaPlayer right_answer_sound;
+    private MediaPlayer wrong_answer_sound;
+    private MediaPlayer score_card_sound;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +99,12 @@ public class StoryActivity extends AppCompatActivity {
         optionsLinearLayout = findViewById(R.id.options_layout);
 
         handler = new Handler();
+        next_button_sound = MediaPlayer.create(StoryActivity.this,R.raw.next_button_sound);
+        game_over_sound = MediaPlayer.create(StoryActivity.this, R.raw.game_over_sound);
+        right_answer_sound = MediaPlayer.create(StoryActivity.this, R.raw.right_answer_sound);
+        wrong_answer_sound = MediaPlayer.create(StoryActivity.this, R.raw.wrong_answer);
+        score_card_sound = MediaPlayer.create(StoryActivity.this, R.raw.score_card_sound);
+
 
         if (savedInstanceState == null) {
             isABoyCharacter = getIntent().getIntExtra("IS_A_BOY_CHAR", 0);
@@ -374,6 +388,7 @@ public class StoryActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         count++;
                         showComicStrip();
+                        next_button_sound.start();
                     }
                 });
             }
@@ -411,6 +426,7 @@ public class StoryActivity extends AppCompatActivity {
                     life = life - 1;
                     option1.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
+                    wrong_answer_sound.start();
                     if (correct_answer == 2)
                         option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
@@ -418,6 +434,7 @@ public class StoryActivity extends AppCompatActivity {
                 } else {
                     option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
+                    right_answer_sound.start();
                     setScore();
                 }
 
@@ -450,6 +467,7 @@ public class StoryActivity extends AppCompatActivity {
                     life = life - 1;
                     option2.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
+                    wrong_answer_sound.start();
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
@@ -458,6 +476,7 @@ public class StoryActivity extends AppCompatActivity {
                 } else {
                     option2.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
+                    right_answer_sound.start();
                     setScore();
                 }
 
@@ -491,6 +510,7 @@ public class StoryActivity extends AppCompatActivity {
                     life = life - 1;
                     option3.setBackground(getResources().getDrawable(R.drawable.wrong_answer_bg));
                     vibe.vibrate(300);
+                    wrong_answer_sound.start();
                     if (correct_answer == 1)
                         option1.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     else
@@ -499,6 +519,7 @@ public class StoryActivity extends AppCompatActivity {
                 } else {
                     option3.setBackground(getResources().getDrawable(R.drawable.correct_answer_bg));
                     score = score + 10;
+                    right_answer_sound.start();
                     setScore();
                 }
 
@@ -550,10 +571,12 @@ public class StoryActivity extends AppCompatActivity {
         menuItemLinearLayout.setVisibility(View.GONE);
         scoreCardFrameLayout.setVisibility(View.VISIBLE);
         scoreCardTextView.setText(String.valueOf(score));
+        score_card_sound.start();
         scoreCardFrameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 scoreCardFrameLayout.setVisibility(View.GONE);
+                score_card_sound.stop();
                 Intent myIntent = new Intent(StoryActivity.this, CharacterIntroActivity.class);
                 myIntent.putExtra(CHARACTER_INTRO_ARRAY, endIntro);
                 myIntent.putExtra(IS_LAST_SCREEN, 1);
@@ -568,6 +591,7 @@ public class StoryActivity extends AppCompatActivity {
 
     private void lifeEnds() {
         vibe.vibrate(1000);
+        game_over_sound.start();
         nextButton.setVisibility(View.GONE);
         storyImageView.setVisibility(View.GONE);
         optionsLinearLayout.setVisibility(View.GONE);
@@ -578,6 +602,7 @@ public class StoryActivity extends AppCompatActivity {
         tryAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                next_button_sound.start();
                 Intent myIntent = new Intent(StoryActivity.this, MainActivity.class);
                 StoryActivity.this.startActivity(myIntent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -588,6 +613,7 @@ public class StoryActivity extends AppCompatActivity {
         visitIgiftLifeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                next_button_sound.start();
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(igiftLifeUrl));
                 startActivity(i);

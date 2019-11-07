@@ -1,6 +1,7 @@
 package com.example.android.igiftlife.Activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,6 +39,8 @@ public class CharacterIntroActivity extends AppCompatActivity {
     private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
     private Handler textAnimationHandler = new Handler();
     private Runnable textAnimationRunnable;
+    private MediaPlayer click_effect;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
         gameEndedPlayAgainButton = findViewById(R.id.playAgainButton);
         gameEndedVisitIgiftLifeButton = findViewById(R.id.visitIgiftLifeBtn);
         igiftlifeIntro = findViewById(R.id.igiftlife_intro);
+        click_effect = MediaPlayer.create(CharacterIntroActivity.this,R.raw.next_button_sound);
 
 
         if (isABoyCharacter == 0)
@@ -79,12 +83,14 @@ public class CharacterIntroActivity extends AppCompatActivity {
             yes_tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    click_effect.start();
                     igiftlifeIntro.setText(getString(R.string.if_user_says_yes));
                     gameEndedRelativeLayout.setVisibility(View.VISIBLE);
 
                     gameEndedPlayAgainButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            click_effect.start();
                             Intent myIntent = new Intent(CharacterIntroActivity.this, MainActivity.class);
                             CharacterIntroActivity.this.startActivity(myIntent);
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -95,6 +101,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                     gameEndedVisitIgiftLifeButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            click_effect.start();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(pledgeFormUrl));
                             startActivity(i);
@@ -105,6 +112,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
             no_tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    click_effect.start();
                     gameEndedVisitIgiftLifeButton.setVisibility(View.GONE);
                     igiftlifeIntro.setText(getString(R.string.if_user_says_no));
                     gameEndedRelativeLayout.setVisibility(View.VISIBLE);
@@ -112,6 +120,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                     gameEndedPlayAgainButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            click_effect.start();
                             Intent myIntent = new Intent(CharacterIntroActivity.this, MainActivity.class);
                             CharacterIntroActivity.this.startActivity(myIntent);
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -129,6 +138,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
             characterIntroFrameLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    click_effect.start();
                     if (characterIntro.size() == count) {
                         yes_tv.setVisibility(View.VISIBLE);
                         no_tv.setVisibility(View.VISIBLE);
@@ -140,6 +150,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                         yes_tv.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                click_effect.start();
                                 Intent myIntent = new Intent(CharacterIntroActivity.this, StoryActivity.class);
                                 myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
                                 myIntent.putExtra(IS_SECOND_STORY_LINE, 0);
@@ -152,6 +163,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                         no_tv.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                click_effect.start();
                                 Intent myIntent = new Intent(CharacterIntroActivity.this, StoryActivity.class);
                                 myIntent.putExtra(IS_A_BOY_CHAR, isABoyCharacter);
                                 myIntent.putExtra(IS_SECOND_STORY_LINE, 1);
