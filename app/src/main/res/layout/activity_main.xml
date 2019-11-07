@@ -6,13 +6,14 @@
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <ImageButton
         android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/hello"
         android:scaleType="fitXY"
         android:src="@drawable/firstscreen"
         android:visibility="visible" />
@@ -25,7 +26,6 @@
             android:id="@+id/girlBoyCharLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.0"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -35,6 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/hello"
                 android:scaleType="centerCrop"
                 android:src="@drawable/girl_avatar" />
 
@@ -44,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/hello"
                 android:scaleType="centerCrop"
                 android:src="@drawable/boy_avatar" />
         </LinearLayout>
@@ -52,7 +54,7 @@
             android:id="@+id/areYouAGirlOrBoy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Who would you like to meet?"
+            android:text="@string/who_would_you_like_to_meet"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
@@ -64,7 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_weight="1.0"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -72,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="Kiara"
+                android:text="@string/kiara"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp"
@@ -82,7 +83,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:text="Raj"
+                android:text="@string/raj"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhite"
                 android:textSize="25sp"

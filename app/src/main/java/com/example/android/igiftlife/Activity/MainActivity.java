@@ -1,4 +1,4 @@
-package com.example.android.igiftlife;
+package com.example.android.igiftlife.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.android.igiftlife.R;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         playButtonImageView = findViewById(R.id.playButton);
         girlBoyCharLinearLayout = findViewById(R.id.girlBoyCharLinearLayout);

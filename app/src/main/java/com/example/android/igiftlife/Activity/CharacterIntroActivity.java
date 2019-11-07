@@ -1,4 +1,4 @@
-package com.example.android.igiftlife;
+package com.example.android.igiftlife.Activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.android.igiftlife.R;
 
 import java.util.ArrayList;
 
@@ -33,7 +35,6 @@ public class CharacterIntroActivity extends AppCompatActivity {
     private Button gameEndedVisitIgiftLifeButton;
     private String pledgeFormUrl = "https://igiftlife.com/register-for-organ-donation/";
     private TextView igiftlifeIntro;
-    private Button visitIgiftLifeBtn;
     private String IS_SECOND_STORY_LINE = "IS_SECOND_STORY_LINE";
     private Handler textAnimationHandler = new Handler();
     private Runnable textAnimationRunnable;
@@ -42,7 +43,9 @@ public class CharacterIntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_intro);
-        getSupportActionBar().hide();
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         characterIntroFrameLayout = findViewById(R.id.character_intro_layout);
         characterIntroImageView = findViewById(R.id.character_intro_image_view);
         characterIntroTextView = findViewById(R.id.character_intro_textview);
@@ -58,7 +61,6 @@ public class CharacterIntroActivity extends AppCompatActivity {
         gameEndedPlayAgainButton = findViewById(R.id.playAgainButton);
         gameEndedVisitIgiftLifeButton = findViewById(R.id.visitIgiftLifeBtn);
         igiftlifeIntro = findViewById(R.id.igiftlife_intro);
-        visitIgiftLifeBtn = findViewById(R.id.visitIgiftLifeBtn);
 
 
         if (isABoyCharacter == 0)
@@ -76,8 +78,6 @@ public class CharacterIntroActivity extends AppCompatActivity {
             yes_tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    no_tv.setEnabled(false);
-                    yes_tv.setEnabled(false);
                     igiftlifeIntro.setText(getString(R.string.if_user_says_yes));
                     gameEndedRelativeLayout.setVisibility(View.VISIBLE);
 
@@ -104,10 +104,19 @@ public class CharacterIntroActivity extends AppCompatActivity {
             no_tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    no_tv.setEnabled(false);
-                    yes_tv.setEnabled(false);
-                    visitIgiftLifeBtn.setVisibility(View.GONE);
+                    gameEndedVisitIgiftLifeButton.setVisibility(View.GONE);
                     igiftlifeIntro.setText(getString(R.string.if_user_says_no));
+                    gameEndedRelativeLayout.setVisibility(View.VISIBLE);
+
+                    gameEndedPlayAgainButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(CharacterIntroActivity.this, MainActivity.class);
+                            CharacterIntroActivity.this.startActivity(myIntent);
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                            finish();
+                        }
+                    });
 
                 }
             });
@@ -123,6 +132,8 @@ public class CharacterIntroActivity extends AppCompatActivity {
                         no_tv.setVisibility(View.VISIBLE);
                         touchAnywhereTv.setVisibility(View.GONE);
                         typingAnimation(characterIntroTextView, "I don't feel like going to school though. Should I go or not?", 1);
+                        yes_tv.setEnabled(true);
+                        no_tv.setEnabled(true);
                         yes_tv.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -162,9 +173,8 @@ public class CharacterIntroActivity extends AppCompatActivity {
             delay = 200;
         }
         view.setText(text.substring(0, length));
-        if (length == text.length())
-            return;
-        else {
+
+        if (length != text.length()) {
             if (textAnimationRunnable != null) {
                 textAnimationHandler.removeCallbacks(textAnimationRunnable);
             }
