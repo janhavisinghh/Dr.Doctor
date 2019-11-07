@@ -144,7 +144,7 @@ public class CharacterIntroActivity extends AppCompatActivity {
                         no_tv.setVisibility(View.VISIBLE);
                         touchAnywhereTv.setVisibility(View.GONE);
                         characterIntroFrameLayout.setEnabled(false);
-                        typingAnimation(characterIntroTextView, "I don't feel very well though. Do you think I should go to school?", 1);
+                        typingAnimation(characterIntroTextView, getString(R.string.not_feeling_well), 1);
                         yes_tv.setEnabled(true);
                         no_tv.setEnabled(true);
                         yes_tv.setOnClickListener(new View.OnClickListener() {

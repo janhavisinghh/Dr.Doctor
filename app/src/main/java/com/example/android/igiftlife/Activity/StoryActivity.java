@@ -151,13 +151,13 @@ public class StoryActivity extends AppCompatActivity {
                 girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
 
                 girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
-                girlStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
-                girlStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
-                girlStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
-                girlStoryList.add(new Story(R.drawable.time3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
-                girlStoryList.add(new Story(R.drawable.time4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
 
                 //timeframes of organ donation
+                girlStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hellotime1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hellohello, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                girlStoryList.add(new Story(R.drawable.hellotime3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                girlStoryList.add(new Story(R.drawable.hellotime4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
 
                 girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
                 girlStoryList.add(new Story(R.drawable.hospitalgirl21, false, new Options("", new String[]{}, -1)));
@@ -209,11 +209,12 @@ public class StoryActivity extends AppCompatActivity {
 
                 boyStoryList.add(new Story(R.drawable.hospitalboy19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
 
+                //timeframes of organ donation
                 boyStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
-                boyStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
-                boyStoryList.add(new Story(R.drawable.time3, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
-                boyStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
-                boyStoryList.add(new Story(R.drawable.time4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hellotime1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hellohello, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                boyStoryList.add(new Story(R.drawable.hellotime3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                boyStoryList.add(new Story(R.drawable.hellotime4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
 
                 boyStoryList.add(new Story(R.drawable.hospitalboy20, false, new Options("", new String[]{}, -1)));
                 boyStoryList.add(new Story(R.drawable.hospitalboy21, false, new Options("", new String[]{}, -1)));
@@ -264,14 +265,13 @@ public class StoryActivity extends AppCompatActivity {
                 girlStoryList.add(new Story(R.drawable.girlquiz7, true, new Options("", new String[]{"1. YES", "2. NO", "3. Not Sure"}, 1)));
                 girlStoryList.add(new Story(R.drawable.girlquiz8, true, new Options("", new String[]{"1. Yes", "2. No", "3. Depends on Medical Conditions"}, 3)));
 
+                //timeframes of organ donation
                 girlStoryList.add(new Story(R.drawable.hospitalgirl19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
                 girlStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
-                girlStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
-                girlStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
-                girlStoryList.add(new Story(R.drawable.time3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
-                girlStoryList.add(new Story(R.drawable.time4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
-
-                //timeframes of organ donation
+                girlStoryList.add(new Story(R.drawable.hellotime1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                girlStoryList.add(new Story(R.drawable.hellohello, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                girlStoryList.add(new Story(R.drawable.hellotime3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                girlStoryList.add(new Story(R.drawable.hellotime4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
 
                 girlStoryList.add(new Story(R.drawable.hospitalgirl20, false, new Options("", new String[]{}, -1)));
                 girlStoryList.add(new Story(R.drawable.hospitalgirl21, false, new Options("", new String[]{}, -1)));
@@ -325,11 +325,12 @@ public class StoryActivity extends AppCompatActivity {
 
                 boyStoryList.add(new Story(R.drawable.hospitalboy19, false, new Options("", new String[]{"1. Match the following!"}, 1)));
 
+                //timeframes of organ donation
                 boyStoryList.add(new Story(R.drawable.timeframegirl1, false, new Options("", new String[]{"1. Match the following!"}, 1)));
-                boyStoryList.add(new Story(R.drawable.time1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
-                boyStoryList.add(new Story(R.drawable.time2, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
-                boyStoryList.add(new Story(R.drawable.time3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
-                boyStoryList.add(new Story(R.drawable.time4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hellotime1, true, new Options("", new String[]{"1. Heart and Lungs", "2. Eyes and Skin", "3. Liver and Heart"}, 1)));
+                boyStoryList.add(new Story(R.drawable.hellohello, true, new Options("", new String[]{"1. Kidney and Eyes", "2. Eyes and Skin", "3. Liver and Lungs"}, 2)));
+                boyStoryList.add(new Story(R.drawable.hellotime3, true, new Options("", new String[]{"1. Heart and Lungs", "2 Pancreas and Kidney. ", "3. Liver and Pancreas"}, 3)));
+                boyStoryList.add(new Story(R.drawable.hellotime4, true, new Options("", new String[]{"1. Kidney", "2. Lungs and Skin", "3. Heart"}, 1)));
 
                 boyStoryList.add(new Story(R.drawable.hospitalboy20, false, new Options("", new String[]{}, -1)));
                 boyStoryList.add(new Story(R.drawable.hospitalboy21, false, new Options("", new String[]{}, -1)));
