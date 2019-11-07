@@ -43,8 +43,8 @@ public class CharacterIntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_intro);
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
         }
         characterIntroFrameLayout = findViewById(R.id.character_intro_layout);
         characterIntroImageView = findViewById(R.id.character_intro_image_view);

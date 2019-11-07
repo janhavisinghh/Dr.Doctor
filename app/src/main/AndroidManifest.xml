@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com$example$android$igiftlife$Activity.MainActivity"
+            android:name=".Activity.MainActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -26,11 +26,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com$example$android$igiftlife$Activity.StoryActivity"
+            android:name=".Activity.StoryActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com$example$android$igiftlife$Activity.CharacterIntroActivity"
+            android:name=".Activity.CharacterIntroActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
     </application>

@@ -83,15 +83,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible"
-        android:weightSum="10">
+        android:layout_weight="10">
 
         <ImageView
             android:id="@+id/comicStripIv"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="500dp"
             android:layout_gravity="center"
             android:layout_weight="6"
             android:contentDescription="@string/hello"
@@ -99,7 +99,7 @@
             android:src="@drawable/homeboy1"
             android:visibility="visible" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/options_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +125,9 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
-                tools:text="1. 18" />
+                tools:text="1. 18"
+                android:layout_weight="1"
+                />
 
             <Button
                 android:id="@+id/mcq_option_2"
@@ -145,7 +147,9 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
-                tools:text="2. 25" />
+                tools:text="2. 25"
+                android:layout_weight="1"
+                />
 
             <Button
                 android:id="@+id/mcq_option_3"
@@ -165,8 +169,10 @@
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="15sp"
-                tools:text="3. No age bar" />
-        </RelativeLayout>
+                tools:text="3. No age bar"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
     </LinearLayout>
 
 
