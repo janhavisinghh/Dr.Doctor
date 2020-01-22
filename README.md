@@ -1,6 +1,12 @@
 # Dr. Hope
 
 An android app for an Organ Donation Awareness NGO named, <a href="https://igiftlife.com/">IGiftLife</a>. This app is a small initiative by us in collaboration with them to help people be more aware about the Organ Donation. 
+
+### Things used: 
+1. <a href="https://www.pixton.com/">Pixton</a>
+2. <a href="https://developer.android.com/reference/android/media/MediaPlayer">MediaPlayer</a>
+3. <a href="https://developer.android.com/reference/android/animation/ObjectAnimator">ObjectAnimator</a>
+4. <a href="https://developer.android.com/reference/android/os/Vibrator">Vibrator</a>
 ### Project ScreenShots:
 1. There are 2 different storylines with 2 different characters (Raj and Kiara).<br><br>
 <img src="https://github.com/janhavisinghh/Dr.Doctor/blob/master/girl_or_boy.jpg" width="250" align="middle"><br><br>
