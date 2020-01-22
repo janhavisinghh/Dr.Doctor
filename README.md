@@ -15,6 +15,5 @@ An android app for an Organ Donation Awareness NGO named, <a href="https://igift
 6. You have 3 lives. You lose a life when you answer a question wrong. If you lose all your 3 lives. Game is over.<br><br>
 <img src="https://github.com/janhavisinghh/Dr.Doctor/blob/master/game_finished_screen.jpg" width="250" align="middle"><br><br>
 
-<br>
 ### Try out the app yourself!
-<a href="https://github.com/janhavisinghh/Dr.Doctor/blob/master/Dr_Hope.apk">Dowload APK</a>
+<a href="https://github.com/janhavisinghh/Dr.Doctor/blob/master/Dr_Hope.apk">Download APK</a>
