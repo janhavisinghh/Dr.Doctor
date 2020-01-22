@@ -1,6 +1,6 @@
 # Dr. Hope
 
-An android app for an NGO named <a href="https://igiftlife.com/">IGiftLife</a>, who are constantly working towards making people more aware about Organ Donation. And this app is a small initiative by us in collaboration with them to help people be more aware about the same. 
+An android app for an Organ Donation Awareness NGO named, <a href="https://igiftlife.com/">IGiftLife</a>. This app is a small initiative by us in collaboration with them to help people be more aware about the Organ Donation. 
 ### Project ScreenShots:
 1. There are 2 different storylines with 2 different characters (Raj and Kiara).<br><br>
 <img src="https://github.com/janhavisinghh/Dr.Doctor/blob/master/girl_or_boy.jpg" width="250" align="middle"><br><br>
